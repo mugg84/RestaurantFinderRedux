@@ -6,7 +6,7 @@ import RestaurantInfo from './Components/restaurants/RestaurantInfo';
 import { Provider } from 'react-redux';
 import store from './store';
 
-import './App.css';
+import './App.scss';
 
 const App = () => {
   return (

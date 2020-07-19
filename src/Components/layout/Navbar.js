@@ -44,7 +44,7 @@ const Navbar = ({ className }) => {
           : 'show'
       )}
     >
-      <p className="log-big">
+      <p className="logo-big">
         <i className="fas fa-pizza-slice"></i>FoodFinder
       </p>
       <p className="logo-small">

@@ -113,7 +113,7 @@ const Restaurant = ({ match, loading, restaurant, getRestaurantInfo }) => {
                     <p>
                       Visit our{' '}
                       <a
-                        style={{ color: 'var(--main--color)' }}
+                        style={{ color: 'var($color-primary)' }}
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"

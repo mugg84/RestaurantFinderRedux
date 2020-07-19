@@ -28,10 +28,12 @@ const DisplayDefaultRestaurants = ({
   useEffect(() => {
     if (location) {
       if (defaultRestaurants.length === 0) {
+        /*
         getDefaultRestaurants(location);
         getDefaultThaiRestaurants(location);
         getDefaultItalianRestaurants(location);
         getDefaultIndianRestaurants(location);
+      */
       }
     }
     // eslint-disable-next-line

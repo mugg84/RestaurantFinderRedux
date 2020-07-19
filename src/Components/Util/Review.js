@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 
 const Review = ({ review }) => {
   const {
     text,
     time_created,
     url,
-    user: { image_url } = "",
-    user: { name } = "",
+    user: { image_url } = '',
+    user: { name } = '',
   } = review;
 
   return (
@@ -16,7 +16,7 @@ const Review = ({ review }) => {
           src={
             image_url
               ? image_url
-              : require("../../Images/no-image-avaiable.jpg")
+              : require('../../Images/no-image-avaiable.jpg')
           }
           alt={name}
         />
@@ -27,9 +27,9 @@ const Review = ({ review }) => {
       </figure>
 
       <div className="review-text">
-        {text}{" "}
+        {text}{' '}
         <a
-          style={{ color: "var(--main--color)" }}
+          style={{ color: 'var($color-primary)' }}
           href={url}
           target="_blank"
           rel="noopener noreferrer"
