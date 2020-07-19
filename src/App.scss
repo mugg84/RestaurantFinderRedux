@@ -446,8 +446,8 @@ nav {
 
 .aboutText {
   position: absolute;
-  top: 70vh;
-  left: 7vh;
+  top: 40rem;
+  left: 4rem;
   @include flex(stretch, flex-start, column);
 }
 
@@ -770,6 +770,7 @@ h3,
       no-repeat center center;
   background-size: 100% 100%;
   position: relative;
+  margin-top: 4rem;
 
   & h2 {
     color: $color-primary;
@@ -908,7 +909,7 @@ small {
   }
 
   .aboutText {
-    top: 60vh;
+    top: 45rem;
   }
 }
 
@@ -1001,13 +1002,13 @@ small {
 
   .map-holder {
     height: 27rem;
-    width: 27rem;
+    width: 100%;
   }
 }
 
 @media only screen and (max-width: 768px) {
   h1 {
-    margin: 4rem 0;
+    margin: 1rem 0;
   }
 
   .fixed {
@@ -1081,7 +1082,7 @@ small {
   }
 
   .aboutText {
-    top: 50vh;
+    top: 35rem;
   }
 
   .who,
