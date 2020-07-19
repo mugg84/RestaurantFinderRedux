@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import DisplaySearchBar from '../layout/DisplaySearchBar';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { handleScriptLoad } from '../../helpers/Autocomplete';
 import { getRestaurants, setAlert } from '../../actions/restaurantAction';
 
 const Search = ({ getRestaurants, setAlert }) => {
-  let autocomplete;
-
   const [where, setWhere] = useState('');
   const [what, setWhat] = useState('');
   const [sortBy, setSortBy] = useState('rating');
@@ -15,32 +14,6 @@ const Search = ({ getRestaurants, setAlert }) => {
     'Highest Rated': 'rating',
     'Best Match': 'best_match',
     'Most Reviewed': 'review_count',
-  };
-
-  const handleScriptLoad = () => {
-    // Initialize Google Autocomplete
-    /*global google*/ autocomplete = new google.maps.places.Autocomplete(
-      document.getElementById('autocomplete')
-    );
-
-    // address.
-    autocomplete.setFields(['address_components', 'formatted_address']);
-
-    // Fire Event when a suggested name is selected
-    autocomplete.addListener('place_changed', handlePlaceSelect);
-  };
-
-  const handlePlaceSelect = () => {
-    // Extract City From Address Object
-
-    const addressObject = autocomplete.getPlace();
-    const address = addressObject.address_components;
-
-    // Check if address is valid
-    if (address) {
-      // Set State
-      setWhere(address[0].long_name);
-    }
   };
 
   // give active class to option selected

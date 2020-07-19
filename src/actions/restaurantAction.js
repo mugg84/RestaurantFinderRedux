@@ -1,5 +1,5 @@
-import Yelp from '../Components/Util/Yelp';
-import { getCurrentPosition } from '../Components/Util/GeoLocation';
+import Yelp from '../helpers/Yelp';
+import { getCurrentPosition } from '../helpers/GeoLocation';
 
 import {
   GET_RESTAURANTS,
