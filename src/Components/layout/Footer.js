@@ -1,6 +1,6 @@
 import React from "react";
-import MailchimpSubscribe from "../Util/MailchimpSub";
-import CustomForm from '../Util/CustomForm'
+import MailchimpSubscribe from "../util/MailchimpSub";
+import CustomForm from '../util/CustomForm'
 import { Link } from "react-router-dom";
 
 function Footer() {
