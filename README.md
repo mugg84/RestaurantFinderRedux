@@ -1,1 +1,1 @@
-Restaurant Finder App https://restaurant-finder-123.netlify.app/
+Restaurant Finder App with Redux https://restaurant-finder-redux.netlify.app/
