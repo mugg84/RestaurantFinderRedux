@@ -12,6 +12,8 @@ import StarRatings from 'react-star-ratings';
 import Fade from 'react-reveal/Fade';
 import { v4 as uuidv4 } from 'uuid';
 
+import './RestaurantInfo.scss';
+
 const Restaurant = ({ match, loading, restaurant, getRestaurantInfo }) => {
   useEffect(() => {
     getRestaurantInfo(match.params.id);
