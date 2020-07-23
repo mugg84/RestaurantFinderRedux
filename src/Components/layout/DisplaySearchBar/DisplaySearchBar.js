@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { clearSearch } from '../../actions/restaurantAction';
+import { clearSearch } from '../../../actions/restaurantAction';
 //Import React Script Libraray to load Google object
 import Script from 'react-load-script';
 import Fade from 'react-reveal/Fade';
-import Alert from '../layout/Alert';
+import Alert from '../Alert/Alert';
+
+import './DisplaySearchBar.scss';
 
 const DisplaySearchBar = ({
   renderSortByOptions,

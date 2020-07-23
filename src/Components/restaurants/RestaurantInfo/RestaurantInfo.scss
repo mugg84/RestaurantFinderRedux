@@ -1,0 +1,235 @@
+@import '../../../style/variables';
+@import '../../../style/global';
+@import '../../../style/mixin';
+
+.backButton {
+  margin: 4rem 0;
+  padding: 1rem 3rem;
+  display: inline-block;
+}
+
+.restaurant-display {
+  margin: 4rem 8rem;
+  display: flex;
+
+  & * {
+    color: $color-text;
+  }
+
+  & ul {
+    display: flex;
+  }
+
+  & li {
+    display: flex;
+    width: 33.3%;
+  }
+}
+
+.restaurant-display-info {
+  margin-bottom: 2rem;
+
+  & h2 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: 700;
+  }
+
+  & div {
+    display: flex;
+  }
+}
+
+.restaurant-display-right {
+  width: 70%;
+}
+
+.restaurant-display-left {
+  width: 30%;
+  height: 100%;
+  @include flex(stretch, flex-end, row);
+
+  & figure {
+    width: 30rem;
+  }
+
+  & figcaption {
+    @include flex(stretch, center, column);
+    padding: 2rem;
+  }
+}
+
+.restaurant-img {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+  height: 45rem;
+
+  & img {
+    @include border-radius(1rem);
+    height: 100%;
+    width: 100%;
+  }
+}
+
+#first {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+aside figure {
+  margin-top: 12rem;
+  @include border-radius(1rem);
+  @include box-shadow(5px, 5px, 5px, 5px);
+}
+
+.map-holder {
+  height: 30rem;
+  width: 30rem;
+
+  & div :first-child {
+    @include border-radius(1rem);
+  }
+
+  & i {
+    font-size: 3.5rem;
+    color: $color-primary;
+    text-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.restaurant-reviews {
+  flex-direction: column;
+  padding: 4rem 0;
+
+  & h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    border-bottom: 1px solid $color-primary;
+    padding-bottom: 4rem;
+  }
+}
+
+.review-user {
+  @include flex(center, flex-start, row);
+  padding: 4rem 0 2rem 0;
+
+  & img {
+    height: 5rem;
+    width: 5rem;
+    margin-right: 1rem;
+    @include border-radius(50rem);
+  }
+}
+
+.review-text {
+  border-bottom: 1px solid $color-primary;
+  padding-bottom: 4rem;
+}
+
+@media only screen and (max-width: 1124px) {
+  .restaurant-display {
+    margin: 4rem;
+  }
+
+  .restaurant-display-right {
+    width: 60%;
+  }
+
+  .restaurant-display-left {
+    width: 40%;
+  }
+}
+
+@media only screen and (orientation: portrait) and (max-width: 1024px) and (min-width: 648px) {
+  .restaurant-display {
+    flex-direction: column;
+  }
+
+  .restaurant-img {
+    height: 25rem;
+  }
+
+  .restaurant-display-info {
+    font-size: 130%;
+
+    & h2 {
+      font-size: 5rem;
+    }
+  }
+
+  .restaurant-display-right,
+  .restaurant-display-left {
+    width: 100%;
+  }
+
+  .restaurant-display-left {
+    justify-content: center;
+
+    & figure {
+      margin: 4rem;
+    }
+  }
+
+  .backButton {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .restaurant-display-left figure {
+    width: 27rem;
+  }
+
+  .map-holder {
+    height: 27rem;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .restaurant-img {
+    height: 35rem;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .restaurant-display {
+    flex-direction: column;
+  }
+
+  .restaurant-reviews {
+    padding-bottom: 0;
+  }
+
+  .restaurant-display-right {
+    width: 100%;
+  }
+
+  .restaurant-display-left {
+    width: 100%;
+    @include flex(center, center, row);
+    margin: 4rem 0;
+
+    & figure {
+      margin: 0;
+      width: 45vh;
+    }
+  }
+
+  #first {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .backButton {
+    display: block;
+  }
+}

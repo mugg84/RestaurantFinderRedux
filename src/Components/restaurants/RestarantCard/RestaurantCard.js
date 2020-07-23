@@ -1,9 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+import './RestaurantCard.scss';
 
 const RestaurantCardList = ({ restaurant, id }) => {
-  
   const { image, name, phone, price, categories, address } = restaurant;
   return (
     <section className="card">

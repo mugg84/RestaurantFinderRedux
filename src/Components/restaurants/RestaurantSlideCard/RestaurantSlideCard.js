@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 
+import './RestaurantSlideCard.scss';
+
 const RestaurantSlideCard = ({ restaurant }) => {
   const { image, name, phone, price, categories, id, rating } = restaurant;
   //might use phone for button
@@ -15,7 +17,9 @@ const RestaurantSlideCard = ({ restaurant }) => {
               className="card-image"
               style={{
                 backgroundImage: `url(${
-                  image ? image : require('../../Images/no-image-avaiable.jpg')
+                  image
+                    ? image
+                    : require('../../../Images/no-image-avaiable.jpg')
                 }`,
               }}
             ></div>

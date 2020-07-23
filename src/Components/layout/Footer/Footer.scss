@@ -1,0 +1,134 @@
+@import '../../../style/variables';
+@import '../../../style/global';
+@import '../../../style/mixin';
+
+footer {
+  background-color: $color-dark;
+  position: relative;
+  @include flex(stretch, center, column);
+  padding: 6rem 0;
+}
+
+footer a,
+.newsletter h3,
+small {
+  color: $color-light;
+}
+
+.newsletter {
+  padding: 4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  @include flex(center, center, row);
+
+  & i {
+    font-size: 3rem;
+  }
+
+  & legend {
+    text-align: center;
+  }
+
+  & legend * {
+    padding: 1rem;
+  }
+
+  & form div {
+    height: 5rem;
+  }
+}
+
+.form-text input {
+  margin: 1rem;
+}
+
+.news-btn {
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.footer-items {
+  padding: 4rem 5rem;
+}
+
+.top-list {
+  @include flex(stretch, space-around, row);
+  width: 100%;
+  font-weight: 600;
+
+  & li {
+    text-align: center;
+    width: 16.6%;
+  }
+}
+
+.footer-logo {
+  display: flex;
+  width: 50%;
+  color: $color-primary;
+}
+
+.fa-pizza-slice {
+  padding-top: 0.5rem;
+}
+
+.nested-list li {
+  padding-top: 1rem;
+  font-weight: 400;
+  width: 100%;
+  opacity: 0.8;
+}
+
+small {
+  font-size: 1rem;
+  display: block;
+  background-color: $color-dark;
+  padding: 0 0 1rem 2rem;
+  position: absolute;
+  bottom: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .newsletter {
+    padding: 2rem 0;
+
+    & form {
+      width: 70%;
+      @include flex(stretch, center, column);
+    }
+  }
+
+  .footer-items {
+    padding: 4rem 2rem;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  footer {
+    padding: 4rem 0;
+  }
+
+  .top-list {
+    & :nth-child(3) {
+      display: none;
+    }
+
+    & > li {
+      width: 33.3%;
+      text-align: center;
+    }
+  }
+
+  .footer-logo {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .footer-logo {
+    display: none;
+  }
+
+  .top-list > li {
+    width: 50%;
+  }
+}

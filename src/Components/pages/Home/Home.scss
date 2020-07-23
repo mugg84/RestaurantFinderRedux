@@ -1,0 +1,28 @@
+@import '../../../style/variables';
+@import '../../../style/global';
+@import '../../../style/mixin';
+
+.nav-home li:first-child a {
+  color: $color-primary;
+}
+
+.nav-home .fa-home {
+  color: $color-primary;
+}
+
+.main-home {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('../../../Images/adils-photography-gmo6Ok9G0U8-unsplash.jpg');
+
+  z-index: -1;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  height: 95vh;
+}
+
+@media only screen and (max-width: 450px) {
+  .main-home {
+    height: 80vh;
+  }
+}

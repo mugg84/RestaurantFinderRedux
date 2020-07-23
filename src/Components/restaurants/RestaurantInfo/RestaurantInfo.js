@@ -1,13 +1,13 @@
 import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { getRestaurantInfo } from '../../actions/restaurantAction';
+import { getRestaurantInfo } from '../../../actions/restaurantAction';
 import { Link } from 'react-router-dom';
-import Spinner from '../util/Spinner';
-import Navbar from '../layout/Navbar';
-import Review from '../util/Review';
-import Footer from '../layout/Footer';
+import Spinner from '../../util/Spinner';
+import Navbar from '../../layout/Navbar/Navbar';
+import Review from '../../util/Review';
+import Footer from '../../layout/Footer/Footer';
 import PropTypes from 'prop-types';
-import SimpleMap from '../util/Map';
+import SimpleMap from '../../util/Map';
 import StarRatings from 'react-star-ratings';
 import Fade from 'react-reveal/Fade';
 import { v4 as uuidv4 } from 'uuid';
@@ -67,7 +67,7 @@ const Restaurant = ({ match, loading, restaurant, getRestaurantInfo }) => {
                       src={
                         photos.length
                           ? photos[0]
-                          : require('../../Images/no-image-avaiable.jpg')
+                          : require('../../../Images/no-image-avaiable.jpg')
                       }
                       alt={name}
                     />
@@ -75,7 +75,7 @@ const Restaurant = ({ match, loading, restaurant, getRestaurantInfo }) => {
                       src={
                         photos.length > 1
                           ? photos[1]
-                          : require('../../Images/no-image-avaiable.jpg')
+                          : require('../../../Images/no-image-avaiable.jpg')
                       }
                       alt={name}
                     />
@@ -83,7 +83,7 @@ const Restaurant = ({ match, loading, restaurant, getRestaurantInfo }) => {
                       src={
                         photos.length > 2
                           ? photos[2]
-                          : require('../../Images/no-image-avaiable.jpg')
+                          : require('../../../Images/no-image-avaiable.jpg')
                       }
                       alt={name}
                     />

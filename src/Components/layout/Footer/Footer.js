@@ -1,14 +1,15 @@
-import React from "react";
-import MailchimpSubscribe from "../util/MailchimpSub";
-import CustomForm from '../util/CustomForm'
-import { Link } from "react-router-dom";
+import React from 'react';
+import MailchimpSubscribe from '../../util/MailchimpSub';
+import CustomForm from '../../util/CustomForm';
+import { Link } from 'react-router-dom';
+
+import './Footer.scss';
 
 function Footer() {
-
   return (
     <footer>
       <section className="newsletter">
-        <MailchimpSubscribe 
+        <MailchimpSubscribe
           render={({ subscribe, status, message }) => (
             <CustomForm
               status={status}
@@ -57,4 +58,3 @@ function Footer() {
 }
 
 export default Footer;
-

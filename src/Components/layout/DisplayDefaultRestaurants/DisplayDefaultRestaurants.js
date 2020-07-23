@@ -5,13 +5,14 @@ import {
   getDefaultThaiRestaurants,
   getDefaultItalianRestaurants,
   getDefaultIndianRestaurants,
-} from '../../actions/restaurantAction';
+} from '../../../actions/restaurantAction';
 import PropTypes from 'prop-types';
-import RestaurantSlideCard from '../restaurants/RestaurantSlideCard';
+import RestaurantSlideCard from '../../restaurants/RestaurantSlideCard/RestaurantSlideCard';
 import Carousel from 'react-multi-carousel';
-import { responsive } from '../../helpers/Responsive';
+import { responsive } from '../../../helpers/Responsive';
 import 'react-multi-carousel/lib/styles.css';
-import Fade from 'react-reveal/Fade';
+
+import './DisplayDefaultRestaurants.scss';
 
 const DisplayDefaultRestaurants = ({
   location,
@@ -109,12 +110,6 @@ const DisplayDefaultRestaurants = ({
             </Carousel>
           </section>
         )}
-
-      <div className="slider-endimage">
-        <Fade left>
-          <h2>Something that's supposed to be inspirational</h2>
-        </Fade>
-      </div>
     </section>
   );
 };

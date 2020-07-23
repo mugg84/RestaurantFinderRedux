@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import './Alert.scss';
+
 const Alert = ({ alert }) => {
   return alert !== null && <p className="alert-text">{alert.msg}</p>;
 };

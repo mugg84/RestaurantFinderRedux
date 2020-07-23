@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
+import './Navbar.scss';
+
 const Navbar = ({ className }) => {
   const [scrollDir, setScrollDir] = useState('scrolling down');
 

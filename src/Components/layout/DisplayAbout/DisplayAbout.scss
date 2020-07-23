@@ -1,0 +1,278 @@
+@import '../../../style/variables';
+@import '../../../style/global';
+@import '../../../style/mixin';
+
+.nav-about {
+  & li:nth-child(2) a {
+    color: $color-primary;
+  }
+
+  & .fa-info-circle {
+    color: $color-primary;
+  }
+}
+
+.about {
+  height: 95vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('./../../../Images/jay-wennington-N_Y88TWmGwA-unsplash.jpg') no-repeat
+      center center fixed;
+  background-size: 100% 100%;
+  padding: 4rem 0;
+}
+
+.aboutText {
+  position: absolute;
+  top: 40rem;
+  left: 4rem;
+  @include flex(stretch, flex-start, column);
+}
+
+.who,
+.values {
+  padding: 8rem 14rem;
+}
+
+.goal {
+  padding: 8rem 0;
+  margin: 0 14rem;
+
+  & img {
+    width: 100%;
+    @include border-radius(1rem);
+  }
+
+  & h3 {
+    font-size: 3rem;
+  }
+
+  & p {
+    font-size: 2rem;
+    color: $color-text;
+  }
+
+  & figcaption {
+    padding: 2rem 1rem;
+  }
+}
+
+.goal-carousel .react-multiple-carousel__arrow {
+  top: 35%;
+}
+
+.who {
+  background-color: #fad22220;
+  display: grid;
+  align-items: center;
+  grid-gap: 0.5rem;
+  grid-template-areas:
+    'header header header header'
+    'one one two two'
+    'three four five six';
+
+  & figure {
+    overflow: hidden;
+    @include transition(all, 1s, 0s);
+  }
+
+  & img {
+    min-width: 100%;
+    min-height: 100%;
+    @include transition(all, 1s, 0s);
+  }
+
+  & img:hover {
+    @include transform-scale(1.1);
+  }
+
+  & p {
+    margin: 4rem 0;
+    font-size: 2rem;
+    text-align: center;
+    color: $color-text;
+  }
+}
+
+.who-text {
+  grid-area: header;
+}
+
+.one,
+.two {
+  height: 25rem;
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three,
+.four,
+.five,
+.six {
+  height: 20rem;
+}
+
+.three {
+  grid-area: three;
+}
+
+.four {
+  grid-area: four;
+}
+
+.five {
+  grid-area: five;
+}
+
+.six {
+  grid-area: six;
+}
+
+.about h2 {
+  margin-top: 0;
+}
+
+.values p {
+  color: $color-text;
+}
+
+.value {
+  text-align: center;
+  margin: 3rem;
+
+  & i {
+    font-size: 7rem;
+  }
+
+  & h3 {
+    padding: 2rem 0 1rem 0;
+  }
+}
+
+.values-grid {
+  margin-top: 8rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media only screen and (max-width: 900px) {
+  .who,
+  .values {
+    padding: 8rem 12rem;
+  }
+
+  .goal {
+    margin: 0 12rem;
+
+    & img {
+      height: auto;
+    }
+  }
+
+  .who img:hover {
+    transition: none;
+    @include transform-scale(1);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sticky p {
+    margin-bottom: 0;
+  }
+
+  .about {
+    background-size: cover;
+    height: 60rem;
+  }
+
+  .aboutText {
+    top: 35rem;
+  }
+
+  .who,
+  .values {
+    padding: 8rem;
+  }
+
+  .goal {
+    margin: 0 8rem;
+
+    & figcaption {
+      padding: 1rem;
+    }
+  }
+
+  .who {
+    grid-template-areas:
+      'header header'
+      'one one'
+      'three four'
+      'two two'
+      'five six';
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .aboutText * {
+    text-align: left;
+  }
+
+  .who,
+  .values {
+    padding: 8rem 4rem;
+  }
+
+  .who {
+    grid-template-areas:
+      'header'
+      'one'
+      'four'
+      'two'
+      'six';
+  }
+
+  .three,
+  .five {
+    display: none;
+  }
+
+  .one,
+  .two,
+  .four,
+  .six {
+    height: 30rem;
+  }
+
+  .goal {
+    margin: 0 2rem;
+
+    & p {
+      font-size: 1.5rem;
+    }
+
+    & figure {
+      border: 1px solid rgba(50, 50, 50, 0.15);
+      @include border-radius(1rem);
+    }
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .goal figure img {
+    height: 50%;
+  }
+}

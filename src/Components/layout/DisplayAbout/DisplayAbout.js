@@ -1,15 +1,17 @@
-import React, { Fragment } from "react";
-import Navbar from "./Navbar";
-import { Waypoint } from "react-waypoint";
-import Carousel from "react-multi-carousel";
-import Fade from "react-reveal/Fade";
+import React, { Fragment } from 'react';
+import Navbar from '../Navbar/Navbar';
+import { Waypoint } from 'react-waypoint';
+import Carousel from 'react-multi-carousel';
+import Fade from 'react-reveal/Fade';
+
+import './DisplayAbout.scss';
 
 const DisplayAbout = () => {
   const handleWaypointEnter = () => {
-    document.querySelector(".fixed").style.opacity = "0";
+    document.querySelector('.fixed').style.opacity = '0';
   };
   const handleWaypointLeave = () => {
-    document.querySelector(".fixed").style.opacity = "100";
+    document.querySelector('.fixed').style.opacity = '100';
   };
 
   const responsive = {
@@ -52,7 +54,7 @@ const DisplayAbout = () => {
           <figure>
             <Fade>
               <img
-                src={require("../../Images/tim-mossholder-FH3nWjvia-U-unsplash.jpg")}
+                src={require('../../../Images/tim-mossholder-FH3nWjvia-U-unsplash.jpg')}
                 alt="Who we are"
               />
 
@@ -69,7 +71,7 @@ const DisplayAbout = () => {
           <figure>
             <Fade>
               <img
-                src={require("../../Images/thomas-marban-EHK-EH1SRzQ-unsplash.jpg")}
+                src={require('../../../Images/thomas-marban-EHK-EH1SRzQ-unsplash.jpg')}
                 alt="Who we are"
               />
 
@@ -87,7 +89,7 @@ const DisplayAbout = () => {
           <figure>
             <Fade>
               <img
-                src={require("../../Images/priscilla-du-preez-XkKCui44iM0-unsplash.jpg")}
+                src={require('../../../Images/priscilla-du-preez-XkKCui44iM0-unsplash.jpg')}
                 alt="Who we are"
               />
 
@@ -118,39 +120,39 @@ const DisplayAbout = () => {
 
           <figure className="one">
             <img
-              src={require("../../Images/priscilla-du-preez-XkKCui44iM0-unsplash.jpg")}
+              src={require('../../../Images/priscilla-du-preez-XkKCui44iM0-unsplash.jpg')}
               alt="Who we are"
             />
           </figure>
           <figure className="two">
             <img
-              src={require("../../Images/austin-distel-rxpThOwuVgE-unsplash.jpg")}
+              src={require('../../../Images/austin-distel-rxpThOwuVgE-unsplash.jpg')}
               alt="Who we are"
             />
           </figure>
 
           <figure className="three">
             <img
-              src={require("../../Images/jakub-kapusnak-4f4YZfDMLeU-unsplash.jpg")}
+              src={require('../../../Images/jakub-kapusnak-4f4YZfDMLeU-unsplash.jpg')}
               alt="Who we are"
             />
           </figure>
 
           <figure className="four">
             <img
-              src={require("../../Images/andreas-klassen-gZB-i-dA6ns-unsplash.jpg")}
+              src={require('../../../Images/andreas-klassen-gZB-i-dA6ns-unsplash.jpg')}
               alt="Who we are"
             />
           </figure>
           <figure className="five">
             <img
-              src={require("../../Images/dan-gold-E6HjQaB7UEA-unsplash.jpg")}
+              src={require('../../../Images/dan-gold-E6HjQaB7UEA-unsplash.jpg')}
               alt="Who we are"
             />
           </figure>
           <figure className="six">
             <img
-              src={require("../../Images/peter-dawn-sxZ_Ca6MkWM-unsplash.jpg")}
+              src={require('../../../Images/peter-dawn-sxZ_Ca6MkWM-unsplash.jpg')}
               alt="Who we are"
             />
           </figure>

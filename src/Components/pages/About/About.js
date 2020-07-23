@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import DisplayAbout from "../../Components/layout/DisplayAbout";
-import Footer from "../../Components/layout/Footer";
-import Navbar from "../layout/Navbar";
+import React, { useEffect } from 'react';
+import DisplayAbout from '../../layout/DisplayAbout/DisplayAbout';
+import Footer from '../../layout/Footer/Footer';
+import Navbar from '../../layout/Navbar/Navbar';
 
 const About = () => {
   useEffect(() => {

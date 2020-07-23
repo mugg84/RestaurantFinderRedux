@@ -1,13 +1,16 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchCoordinates } from '../../actions/restaurantAction';
-import Search from '../../Components/restaurants/Search';
-import Navbar from '../../Components/layout/Navbar';
-import DisplatDefaultRestaurants from '../../Components/layout/DisplayDefaultRestaurants';
-import DisplayRestaurants from '../../Components/layout/DisplayRestaurants';
-import Footer from '../../Components/layout/Footer';
+import { fetchCoordinates } from '../../../actions/restaurantAction';
+import Search from '../../restaurants/Search/Search';
+import Navbar from '../../layout/Navbar/Navbar';
+import DisplatDefaultRestaurants from '../../layout/DisplayDefaultRestaurants/DisplayDefaultRestaurants';
+import DisplayRestaurants from '../../layout/DisplayRestaurants/DisplayRestaurants';
+import ParallaxPics from '../../layout/ParallaxPics/ParallaxPics';
+import Footer from '../../layout/Footer/Footer';
 import { Waypoint } from 'react-waypoint';
+
+import './Home.scss';
 
 const Home = ({ fetchCoordinates }) => {
   useEffect(() => {
@@ -36,6 +39,7 @@ const Home = ({ fetchCoordinates }) => {
         <Navbar className="fixed" />
         <DisplayRestaurants />
         <DisplatDefaultRestaurants />
+        <ParallaxPics />
         <Footer />
       </Fragment>
     </section>

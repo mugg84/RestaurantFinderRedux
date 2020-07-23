@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import RestaurantCard from '../restaurants/RestaurantCard';
-import Spinner from '../util/Spinner';
+import RestaurantCard from '../../restaurants/RestarantCard/RestaurantCard';
+import Spinner from '../../util/Spinner';
+
+import './DisplayRestaurants.scss';
 
 const DisplayRestaurants = ({ loading, restaurants }) => {
   if (loading) {

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import DisplaySearchBar from '../layout/DisplaySearchBar';
+import DisplaySearchBar from '../../layout/DisplaySearchBar/DisplaySearchBar';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { handleScriptLoad } from '../../helpers/Autocomplete';
-import { getRestaurants, setAlert } from '../../actions/restaurantAction';
+import { handleScriptLoad } from '../../../helpers/Autocomplete';
+import { getRestaurants, setAlert } from '../../../actions/restaurantAction';
+
+import './Search.scss';
 
 const Search = ({ getRestaurants, setAlert }) => {
   const [where, setWhere] = useState('');
