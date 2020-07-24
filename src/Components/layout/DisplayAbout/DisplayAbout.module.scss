@@ -2,6 +2,12 @@
 @import '../../../style/global';
 @import '../../../style/mixin';
 
+h2 {
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 0;
+}
+
 .nav-about {
   & li:nth-child(2) a {
     color: $color-primary;
@@ -9,6 +15,16 @@
 
   & .fa-info-circle {
     color: $color-primary;
+  }
+}
+
+.fixed {
+  top: -400px;
+  background-color: $color-primary;
+  @include box-shadow(0, 4px, 8px, 0);
+
+  & p {
+    color: $color-light;
   }
 }
 
@@ -93,7 +109,7 @@
   }
 }
 
-.who-text {
+.whoText {
   grid-area: header;
 }
 
@@ -154,11 +170,17 @@
   }
 }
 
-.values-grid {
+.valuesGrid {
   margin-top: 8rem;
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media only screen and (orientation: landscape) and (max-width: 1024px) {
+  .fixed {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 900px) {
@@ -182,6 +204,11 @@
 }
 
 @media only screen and (max-width: 768px) {
+  h2 {
+    font-size: 3rem;
+  }
+
+
   .sticky p {
     margin-bottom: 0;
   }
@@ -217,12 +244,18 @@
       'five six';
   }
 
-  .values-grid {
+  .valuesGrid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .fixed {
+    display: none;
   }
 }
 
 @media only screen and (max-width: 450px) {
+
+
   .aboutText * {
     text-align: left;
   }
@@ -239,6 +272,10 @@
       'four'
       'two'
       'six';
+
+      & p {
+        font-size: 1.5rem;
+      }
   }
 
   .three,
@@ -250,7 +287,7 @@
   .two,
   .four,
   .six {
-    height: 30rem;
+    height: 25rem;
   }
 
   .goal {
@@ -266,7 +303,7 @@
     }
   }
 
-  .values-grid {
+  .valuesGrid {
     grid-template-columns: 1fr;
   }
 }

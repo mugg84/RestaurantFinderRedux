@@ -1,18 +1,25 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Navbar from '../Navbar/Navbar';
 import { Waypoint } from 'react-waypoint';
 import Carousel from 'react-multi-carousel';
 import Fade from 'react-reveal/Fade';
 
-import './DisplayAbout.scss';
+import styles from './DisplayAbout.module.scss';
 
 const DisplayAbout = () => {
+  /*
   const handleWaypointEnter = () => {
-    document.querySelector('.fixed').style.opacity = '0';
+    console.log(`.${styles.fixed}`);
+    document.querySelector(`.${styles.fixed}`).styles.opacity = '0';
   };
   const handleWaypointLeave = () => {
-    document.querySelector('.fixed').style.opacity = '100';
+    document.querySelector(`.${styles.fixed}`).styles.opacity = '100';
   };
+
+  onEnter={handleWaypointEnter}
+        onLeave={handleWaypointLeave}
+        topOffset="10%"
+*/
 
   const responsive = {
     superLargeDesktop: {
@@ -23,9 +30,9 @@ const DisplayAbout = () => {
   };
 
   return (
-    <Fragment>
-      <section className="about">
-        <hgroup className="aboutText">
+    <>
+      <section className={styles.about}>
+        <hgroup className={styles.aboutText}>
           <Fade left>
             <h1>About this App</h1>
           </Fade>
@@ -35,17 +42,13 @@ const DisplayAbout = () => {
         </hgroup>
       </section>
 
-      <Waypoint
-        onEnter={handleWaypointEnter}
-        onLeave={handleWaypointLeave}
-        topOffset="10%"
-      />
-      <Navbar className="fixed" />
+      <Waypoint />
+      <Navbar className={styles.fixed} />
 
-      <section className="goal">
+      <section className={styles.goal}>
         <h2>Our Goal</h2>
         <Carousel
-          className="goal-carousel"
+          className={styles.carousel}
           responsive={responsive}
           infinite={true}
           transitionDuration={1000}
@@ -106,9 +109,9 @@ const DisplayAbout = () => {
         </Carousel>
       </section>
 
-      <section className="who">
+      <section className={styles.who}>
         <Fade clear>
-          <article className="who-text">
+          <article className={styles.whoText}>
             <h2>RestaurantFinder is a Lorem ipsum dolor</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. In, dolor
@@ -118,39 +121,39 @@ const DisplayAbout = () => {
             </p>
           </article>
 
-          <figure className="one">
+          <figure className={styles.one}>
             <img
               src={require('../../../Images/priscilla-du-preez-XkKCui44iM0-unsplash.jpg')}
               alt="Who we are"
             />
           </figure>
-          <figure className="two">
+          <figure className={styles.two}>
             <img
               src={require('../../../Images/austin-distel-rxpThOwuVgE-unsplash.jpg')}
               alt="Who we are"
             />
           </figure>
 
-          <figure className="three">
+          <figure className={styles.three}>
             <img
               src={require('../../../Images/jakub-kapusnak-4f4YZfDMLeU-unsplash.jpg')}
               alt="Who we are"
             />
           </figure>
 
-          <figure className="four">
+          <figure className={styles.four}>
             <img
               src={require('../../../Images/andreas-klassen-gZB-i-dA6ns-unsplash.jpg')}
               alt="Who we are"
             />
           </figure>
-          <figure className="five">
+          <figure className={styles.five}>
             <img
               src={require('../../../Images/dan-gold-E6HjQaB7UEA-unsplash.jpg')}
               alt="Who we are"
             />
           </figure>
-          <figure className="six">
+          <figure className={styles.six}>
             <img
               src={require('../../../Images/peter-dawn-sxZ_Ca6MkWM-unsplash.jpg')}
               alt="Who we are"
@@ -159,7 +162,7 @@ const DisplayAbout = () => {
         </Fade>
       </section>
 
-      <section className="values">
+      <section className={styles.values}>
         <Fade clear>
           <h2>Our values</h2>
           <p>
@@ -170,9 +173,9 @@ const DisplayAbout = () => {
           </p>
         </Fade>
 
-        <section className="values-grid">
+        <section className={styles.valuesGrid}>
           <Fade clear>
-            <article className="value">
+            <article className={styles.value}>
               <i className="fas fa-mobile-alt"></i>
               <h3>Mobile</h3>
               <p>
@@ -181,7 +184,7 @@ const DisplayAbout = () => {
                 ipsum dolor maxime ab vitae magnam expedita
               </p>
             </article>
-            <article className="value">
+            <article className={styles.value}>
               <i className="fas fa-boxes"></i>
               <h3>Stable</h3>
               <p>
@@ -190,7 +193,7 @@ const DisplayAbout = () => {
                 ipsum dolor maxime ab vitae magnam expedita
               </p>
             </article>
-            <article className="value">
+            <article className={styles.value}>
               <i className="far fa-clock"></i>
               <h3>Fast</h3>
               <p>
@@ -201,7 +204,7 @@ const DisplayAbout = () => {
             </article>
           </Fade>
           <Fade clear>
-            <article className="value">
+            <article className={styles.value}>
               <i className="fas fa-globe"></i>
               <h3>For the World</h3>
               <p>
@@ -210,7 +213,7 @@ const DisplayAbout = () => {
                 ipsum dolor maxime ab vitae magnam expedita
               </p>
             </article>
-            <article className="value">
+            <article className={styles.value}>
               <i className="fas fa-crop-alt"></i>
               <h3>Scalable</h3>
               <p>
@@ -219,7 +222,7 @@ const DisplayAbout = () => {
                 ipsum dolor maxime ab vitae magnam expedita
               </p>
             </article>
-            <article className="value">
+            <article className={styles.value}>
               <i className="fas fa-lock"></i>
               <h3>Secure</h3>
               <p>
@@ -231,8 +234,8 @@ const DisplayAbout = () => {
           </Fade>
         </section>
       </section>
-      <section className="work"></section>
-    </Fragment>
+      <section className={styles.work}></section>
+    </>
   );
 };
 

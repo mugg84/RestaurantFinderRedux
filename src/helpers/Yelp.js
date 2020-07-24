@@ -1,5 +1,4 @@
-import axios from "axios";
-
+import axios from 'axios';
 
 let YELP_API_KEY = process.env.REACT_APP_YELP_API_KEY;
 
@@ -13,15 +12,15 @@ const Yelp = {
         {
           headers: {
             Authorization: `Bearer ${YELP_API_KEY}`,
-            "X-Requested-With": "XMLHttpRequest",
-            "Access-Control-Allow-Origin": "*",
+            'X-Requested-With': 'XMLHttpRequest',
+            'Access-Control-Allow-Origin': '*',
           },
         }
       );
 
       //If result finds no restaurants in the area
       if (response.data.businesses.length === 0) {
-        return "Zero Restaurants";
+        return [];
       }
 
       const parameters = response.data.businesses.map((business) => {
@@ -40,7 +39,7 @@ const Yelp = {
       return parameters;
     } catch (e) {
       console.log(e);
-      return "Error";
+      return 'Error';
     }
   },
 
@@ -52,8 +51,8 @@ const Yelp = {
         {
           headers: {
             Authorization: `Bearer ${YELP_API_KEY}`,
-            "X-Requested-With": "XMLHttpRequest",
-            "Access-Control-Allow-Origin": "*",
+            'X-Requested-With': 'XMLHttpRequest',
+            'Access-Control-Allow-Origin': '*',
           },
         }
       );
@@ -63,8 +62,8 @@ const Yelp = {
         {
           headers: {
             Authorization: `Bearer ${YELP_API_KEY}`,
-            "X-Requested-With": "XMLHttpRequest",
-            "Access-Control-Allow-Origin": "*",
+            'X-Requested-With': 'XMLHttpRequest',
+            'Access-Control-Allow-Origin': '*',
           },
         }
       );
@@ -89,7 +88,7 @@ const Yelp = {
       return parameters;
     } catch (e) {
       console.log(e);
-      return "Error";
+      return 'Error';
     }
   },
 
@@ -101,14 +100,14 @@ const Yelp = {
         {
           headers: {
             Authorization: `Bearer ${YELP_API_KEY}`,
-            "X-Requested-With": "XMLHttpRequest",
-            "Access-Control-Allow-Origin": "*",
+            'X-Requested-With': 'XMLHttpRequest',
+            'Access-Control-Allow-Origin': '*',
           },
         }
       );
 
       if (response.data.businesses.length === 0) {
-        return "Zero Restaurnts";
+        return [];
       }
 
       const parameters = response.data.businesses.map((business) => {
@@ -128,7 +127,7 @@ const Yelp = {
       return parameters;
     } catch (e) {
       console.log(e);
-      return "Error";
+      return 'Error';
     }
   },
 
@@ -140,14 +139,14 @@ const Yelp = {
         {
           headers: {
             Authorization: `Bearer ${YELP_API_KEY}`,
-            "X-Requested-With": "XMLHttpRequest",
-            "Access-Control-Allow-Origin": "*",
+            'X-Requested-With': 'XMLHttpRequest',
+            'Access-Control-Allow-Origin': '*',
           },
         }
       );
 
       if (response.data.businesses.length === 0) {
-        return "Zero Restaurnts";
+        return [];
       }
 
       const parameters = response.data.businesses.map((business) => {
@@ -166,7 +165,7 @@ const Yelp = {
       return parameters;
     } catch (e) {
       console.log(e);
-      return "Error";
+      return 'Error';
     }
   },
 
@@ -178,14 +177,14 @@ const Yelp = {
         {
           headers: {
             Authorization: `Bearer ${YELP_API_KEY}`,
-            "X-Requested-With": "XMLHttpRequest",
-            "Access-Control-Allow-Origin": "*",
+            'X-Requested-With': 'XMLHttpRequest',
+            'Access-Control-Allow-Origin': '*',
           },
         }
       );
 
       if (response.data.businesses.length === 0) {
-        return "Zero Restaurnts";
+        return [];
       }
 
       const parameters = response.data.businesses.map((business) => {
@@ -204,7 +203,7 @@ const Yelp = {
       return parameters;
     } catch (e) {
       console.log(e);
-      return "Error";
+      return 'Error';
     }
   },
 
@@ -216,14 +215,14 @@ const Yelp = {
         {
           headers: {
             Authorization: `Bearer ${YELP_API_KEY}`,
-            "X-Requested-With": "XMLHttpRequest",
-            "Access-Control-Allow-Origin": "*",
+            'X-Requested-With': 'XMLHttpRequest',
+            'Access-Control-Allow-Origin': '*',
           },
         }
       );
 
       if (response.data.businesses.length === 0) {
-        return "Zero Restaurnts";
+        return [];
       }
 
       const parameters = response.data.businesses.map((business) => {
@@ -243,7 +242,7 @@ const Yelp = {
       return parameters;
     } catch (e) {
       console.log(e);
-      return "Error";
+      return 'Error';
     }
   },
 };

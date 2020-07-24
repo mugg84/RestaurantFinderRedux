@@ -29,10 +29,12 @@ const DisplayDefaultRestaurants = ({
   useEffect(() => {
     if (location) {
       if (defaultRestaurants.length === 0) {
+        /*
         getDefaultRestaurants(location);
         getDefaultThaiRestaurants(location);
         getDefaultItalianRestaurants(location);
         getDefaultIndianRestaurants(location);
+        */
       }
     }
     // eslint-disable-next-line
@@ -40,7 +42,7 @@ const DisplayDefaultRestaurants = ({
 
   return (
     <section className="restaurant-sliders">
-      {defaultRestaurants.length > 0 && Array.isArray(defaultRestaurants) && (
+      {Array.isArray(defaultRestaurants) && defaultRestaurants.length > 0 && (
         <section className="restaurant-slider">
           <header>
             <h2>Restaurants near you</h2>
@@ -57,8 +59,8 @@ const DisplayDefaultRestaurants = ({
         </section>
       )}
 
-      {defaultThaiRestaurants.length > 0 &&
-        Array.isArray(defaultThaiRestaurants) && (
+      {Array.isArray(defaultThaiRestaurants) &&
+        defaultThaiRestaurants.length > 0 && (
           <section className="restaurant-slider">
             <header>
               <h2>Fancy Thai?</h2>
@@ -75,8 +77,8 @@ const DisplayDefaultRestaurants = ({
           </section>
         )}
 
-      {defaultItalianRestaurants.length > 0 &&
-        Array.isArray(defaultItalianRestaurants) && (
+      {Array.isArray(defaultItalianRestaurants) &&
+        defaultItalianRestaurants.length > 0 && (
           <section className="restaurant-slider">
             <header>
               <h2>Fancy Italian?</h2>
@@ -93,8 +95,8 @@ const DisplayDefaultRestaurants = ({
           </section>
         )}
 
-      {defaultIndianRestaurants.length > 0 &&
-        Array.isArray(defaultIndianRestaurants) && (
+      {Array.isArray(defaultIndianRestaurants) &&
+        defaultIndianRestaurants.length > 0 && (
           <section className="restaurant-slider">
             <header>
               <h2>Fancy Indian?</h2>

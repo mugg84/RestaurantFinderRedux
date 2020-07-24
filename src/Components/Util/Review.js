@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 const Review = ({ review }) => {
   const {
@@ -10,7 +10,7 @@ const Review = ({ review }) => {
   } = review;
 
   return (
-    <Fragment>
+    <>
       <figure className="review-user">
         <img
           src={
@@ -37,7 +37,7 @@ const Review = ({ review }) => {
           View full review
         </a>
       </div>
-    </Fragment>
+    </>
   );
 };
 

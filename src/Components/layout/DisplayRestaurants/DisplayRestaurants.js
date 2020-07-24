@@ -1,21 +1,21 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import RestaurantCard from '../../restaurants/RestarantCard/RestaurantCard';
-import Spinner from '../../util/Spinner';
+import Spinner from '../../Util/Spinner';
 
-import './DisplayRestaurants.scss';
+import styles from './DisplayRestaurants.module.scss';
 
 const DisplayRestaurants = ({ loading, restaurants }) => {
   if (loading) {
     return <Spinner />;
   } else {
     return (
-      <Fragment>
-        {restaurants.length > 0 && Array.isArray(restaurants) && (
-          <section className="restaurant-list-container">
+      <>
+        {Array.isArray(restaurants) && restaurants.length > 0 && (
+          <section className={styles.restaurantListContainer}>
             <h2>Your search results:</h2>
-            <article className="restaurant-list">
+            <article className={styles.restaurantList}>
               {restaurants.map((restaurant) => (
                 <RestaurantCard
                   key={restaurant.id}
@@ -26,7 +26,7 @@ const DisplayRestaurants = ({ loading, restaurants }) => {
             </article>
           </section>
         )}
-      </Fragment>
+      </>
     );
   }
 };

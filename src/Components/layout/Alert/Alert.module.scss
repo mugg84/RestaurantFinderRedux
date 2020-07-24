@@ -1,0 +1,8 @@
+@import '../../../style/variables';
+@import '../../../style/global';
+
+.alertText {
+  color: $alert;
+  font-weight: 700;
+  font-size: 120%;
+}

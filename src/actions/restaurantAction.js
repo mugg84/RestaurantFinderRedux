@@ -21,7 +21,7 @@ export const getRestaurants = (text) => async (dispatch) => {
 
   let restaurants = await Yelp.searchRestaurants(text);
 
-  if (restaurants === 'Zero Restaurants' || restaurants.length === 0) {
+  if (restaurants === [] || restaurants.length === 0) {
     return dispatch(setAlert('No restaurants in the area'));
   } else if (restaurants === 'Error') {
     return dispatch(setAlert('Invalid search. Try different input'));
@@ -57,10 +57,7 @@ export const getDefaultRestaurants = (location) => async (dispatch) => {
   if (location.length > 0) {
     let defaultRestaurants = await Yelp.SearchDefaultRestaurants(location);
 
-    if (
-      defaultRestaurants === 'Zero Restaurants' ||
-      defaultRestaurants.length === 0
-    ) {
+    if (defaultRestaurants === [] || defaultRestaurants.length === 0) {
       return dispatch(setAlert('No restaurants in the area'));
     } else if (defaultRestaurants === 'Error') {
       return dispatch(setAlert('Something went wrong', 'error'));
@@ -79,10 +76,7 @@ export const getDefaultThaiRestaurants = (location) => async (dispatch) => {
       location
     );
 
-    if (
-      defaultThaiRestaurants === 'Zero Restaurants' ||
-      defaultThaiRestaurants.length === 0
-    ) {
+    if (defaultThaiRestaurants === [] || defaultThaiRestaurants.length === 0) {
       return dispatch(setAlert('No thai restaurants in the area'));
     } else if (defaultThaiRestaurants === 'Error') {
       return dispatch(setAlert('Something went wrong'));
@@ -101,10 +95,7 @@ export const getDefaultItalianRestaurants = (location) => async (dispatch) => {
       location
     );
 
-    if (
-      defaultItaRestaurants === 'Zero Restaurants' ||
-      defaultItaRestaurants.length === 0
-    ) {
+    if (defaultItaRestaurants === [] || defaultItaRestaurants.length === 0) {
       return dispatch(setAlert('No italian restaurants in the area'));
     } else if (defaultItaRestaurants === 'Error') {
       return dispatch(setAlert('Something went wrong'));
@@ -124,7 +115,7 @@ export const getDefaultIndianRestaurants = (location) => async (dispatch) => {
     );
 
     if (
-      defaultIndianRestaurants === 'Zero Restaurants' ||
+      defaultIndianRestaurants === [] ||
       defaultIndianRestaurants.length === 0
     ) {
       return dispatch(setAlert('No indian restaurants in the area'));

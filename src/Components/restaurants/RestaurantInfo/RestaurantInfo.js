@@ -1,13 +1,13 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getRestaurantInfo } from '../../../actions/restaurantAction';
 import { Link } from 'react-router-dom';
 import Navbar from '../../layout/Navbar/Navbar';
-import Review from '../../util/Review';
+import Review from '../../Util/Review';
 import Footer from '../../layout/Footer/Footer';
-import Spinner from '../../util/Spinner';
+import Spinner from '../../Util/Spinner';
 import PropTypes from 'prop-types';
-import SimpleMap from '../../util/Map';
+import SimpleMap from '../../Util/Map';
 import StarRatings from 'react-star-ratings';
 import Fade from 'react-reveal/Fade';
 import { v4 as uuidv4 } from 'uuid';
@@ -136,7 +136,7 @@ const Restaurant = ({ match, loading, restaurant, getRestaurantInfo }) => {
     }
   };
 
-  return <Fragment>{renderPage()}</Fragment>;
+  return <>{renderPage()}</>;
 };
 
 Restaurant.propTypes = {

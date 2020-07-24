@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import './Alert.scss';
+import styles from './Alert.module.scss';
 
 const Alert = ({ alert }) => {
-  return alert !== null && <p className="alert-text">{alert.msg}</p>;
+  return alert !== null && <p className={styles.alertText}>{alert.msg}</p>;
 };
 
 Alert.propTypes = {

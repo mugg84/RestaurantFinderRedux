@@ -1,7 +1,5 @@
-import React from "react";
-import GoogleMapReact from "google-map-react";
-
-
+import React from 'react';
+import GoogleMapReact from 'google-map-react';
 
 const Marker = () => <i className="fas fa-map-marker-alt"></i>;
 
@@ -10,7 +8,7 @@ const SimpleMap = (center) => {
     if (center === undefined) {
       return (
         <img
-          src={require("../../Images/no-image-avaiable.jpg")}
+          src={require('../../Images/no-image-avaiable.jpg')}
           alt="Map not available"
         />
       );

@@ -63,6 +63,10 @@
   margin: 0 4rem;
 }
 
+.alert-holder {
+  height: 3rem;
+}
+
 @media only screen and (orientation: landscape) and (max-width: 1024px) {
   .searchBar h1 {
     font-size: 4rem;
@@ -131,5 +135,10 @@
   .clearButton {
     width: 100%;
     margin: 0;
+  }
+
+  .alert-empty {
+    flex-direction: column;
+    padding: 2rem 0;
   }
 }

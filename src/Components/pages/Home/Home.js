@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchCoordinates } from '../../../actions/restaurantAction';
@@ -28,7 +28,7 @@ const Home = ({ fetchCoordinates }) => {
 
   return (
     <section className="main-home">
-      <Fragment>
+      <>
         <Navbar className="sticky nav-home" />
         <Search />
         <Waypoint
@@ -41,7 +41,7 @@ const Home = ({ fetchCoordinates }) => {
         <DisplatDefaultRestaurants />
         <ParallaxPics />
         <Footer />
-      </Fragment>
+      </>
     </section>
   );
 };
