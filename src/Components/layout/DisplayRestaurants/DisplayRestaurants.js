@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import RestaurantCard from '../../restaurants/RestarantCard/RestaurantCard';
-import Spinner from '../../Util/Spinner';
+import Spinner from '../../Util/Spinner/Spinner';
 
 import styles from './DisplayRestaurants.module.scss';
 

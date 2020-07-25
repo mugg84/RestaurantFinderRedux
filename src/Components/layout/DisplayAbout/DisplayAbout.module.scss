@@ -8,15 +8,7 @@ h2 {
   margin-top: 0;
 }
 
-.nav-about {
-  & li:nth-child(2) a {
-    color: $color-primary;
-  }
 
-  & .fa-info-circle {
-    color: $color-primary;
-  }
-}
 
 .fixed {
   top: -400px;

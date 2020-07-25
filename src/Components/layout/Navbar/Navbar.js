@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import classnames from 'classnames';
 
-import './Navbar.scss';
+import styles from './Navbar.module.scss';
 
 const Navbar = ({ className }) => {
   const [scrollDir, setScrollDir] = useState('scrolling down');
@@ -39,32 +38,31 @@ const Navbar = ({ className }) => {
 
   return (
     <nav
-      className={classnames(
-        className,
-        scrollDir === 'scrolling down' && className === 'fixed'
-          ? 'hide'
-          : 'show'
-      )}
+      className={`${className} ${
+        scrollDir === 'scrolling down' && className === 'sticky'
+          ? `${styles.hide}`
+          : `${styles.show}`
+      }`}
     >
-      <p className="logo-big">
+      <p className={styles.logoBig}>
         <i className="fas fa-pizza-slice"></i>FoodFinder
       </p>
-      <p className="logo-small">
+      <p className={styles.logoSmall}>
         <i className="fas fa-pizza-slice"></i>
       </p>
       <ul>
-        <li className="nav-big-icon">
+        <li className={styles.navBigIcon}>
           <Link to="/">Home</Link>
         </li>
-        <li className="nav-big-icon">
+        <li className={styles.navBigIcon}>
           <Link to="/about">About</Link>
         </li>
-        <li className="nav-small-icon">
+        <li className={styles.navSmallIcon}>
           <Link to="/">
             <i className="fas fa-home"></i>
           </Link>
         </li>
-        <li className="nav-small-icon">
+        <li className={styles.navSmallIcon}>
           <Link to="/about">
             <i className="fas fa-info-circle"></i>
           </Link>

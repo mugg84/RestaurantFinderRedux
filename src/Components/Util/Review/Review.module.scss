@@ -1,0 +1,21 @@
+@import '../../../style/variables';
+@import '../../../style/global';
+@import '../../../style/mixin';
+
+.reviewUser {
+  @include flex(center, flex-start, row);
+  padding: 4rem 0 2rem 0;
+
+  & img {
+    height: 5rem;
+    width: 5rem;
+    margin-right: 1rem;
+    @include border-radius(50rem);
+  }
+}
+
+
+.reviewText {
+  border-bottom: 1px solid $color-primary;
+  padding-bottom: 4rem;
+}

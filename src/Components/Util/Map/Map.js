@@ -1,6 +1,8 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 
+import styles from './Map.module.scss';
+
 const Marker = () => <i className="fas fa-map-marker-alt"></i>;
 
 const SimpleMap = (center) => {
@@ -8,7 +10,7 @@ const SimpleMap = (center) => {
     if (center === undefined) {
       return (
         <img
-          src={require('../../Images/no-image-avaiable.jpg')}
+          src={require('../../../Images/no-image-avaiable.jpg')}
           alt="Map not available"
         />
       );
@@ -27,7 +29,7 @@ const SimpleMap = (center) => {
     }
   };
 
-  return <div className="map-holder">{renderMap()}</div>;
+  return <div className={styles.mapHolder}>{renderMap()}</div>;
 };
 
 export default SimpleMap;

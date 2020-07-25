@@ -12,7 +12,7 @@ import Carousel from 'react-multi-carousel';
 import { responsive } from '../../../helpers/Responsive';
 import 'react-multi-carousel/lib/styles.css';
 
-import './DisplayDefaultRestaurants.scss';
+import styles from './DisplayDefaultRestaurants.module.scss';
 
 const DisplayDefaultRestaurants = ({
   location,
@@ -29,21 +29,25 @@ const DisplayDefaultRestaurants = ({
   useEffect(() => {
     if (location) {
       if (defaultRestaurants.length === 0) {
-        /*
         getDefaultRestaurants(location);
         getDefaultThaiRestaurants(location);
         getDefaultItalianRestaurants(location);
         getDefaultIndianRestaurants(location);
-        */
       }
     }
     // eslint-disable-next-line
   }, [location]);
 
   return (
-    <section className="restaurant-sliders">
+    <section
+      className={
+        Array.isArray(defaultRestaurants) && defaultRestaurants.length > 0
+          ? styles.restaurantSliders
+          : ''
+      }
+    >
       {Array.isArray(defaultRestaurants) && defaultRestaurants.length > 0 && (
-        <section className="restaurant-slider">
+        <section className={styles.restaurantSlider}>
           <header>
             <h2>Restaurants near you</h2>
           </header>
@@ -61,7 +65,7 @@ const DisplayDefaultRestaurants = ({
 
       {Array.isArray(defaultThaiRestaurants) &&
         defaultThaiRestaurants.length > 0 && (
-          <section className="restaurant-slider">
+          <section className={styles.restaurantSlider}>
             <header>
               <h2>Fancy Thai?</h2>
             </header>
@@ -79,7 +83,7 @@ const DisplayDefaultRestaurants = ({
 
       {Array.isArray(defaultItalianRestaurants) &&
         defaultItalianRestaurants.length > 0 && (
-          <section className="restaurant-slider">
+          <section className={styles.restaurantSlider}>
             <header>
               <h2>Fancy Italian?</h2>
             </header>
@@ -97,7 +101,7 @@ const DisplayDefaultRestaurants = ({
 
       {Array.isArray(defaultIndianRestaurants) &&
         defaultIndianRestaurants.length > 0 && (
-          <section className="restaurant-slider">
+          <section className={styles.restaurantSlider}>
             <header>
               <h2>Fancy Indian?</h2>
             </header>

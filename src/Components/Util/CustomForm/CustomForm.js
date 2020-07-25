@@ -1,12 +1,14 @@
 import React from 'react';
 
+import styles from './CustomForm.module.scss';
+
 const CustomForm = ({ status, onValidated }) => {
   let email;
   const submit = (e) => {
     e.preventDefault();
     const emailValue = Object.assign({}, email);
 
-    document.querySelector('.news-input').value = '';
+    document.querySelector(`.${styles.newsInput}`).value = '';
 
     return onValidated({
       EMAIL: emailValue.value,
@@ -20,12 +22,12 @@ const CustomForm = ({ status, onValidated }) => {
         <h3>Want some Inbox love?</h3>
       </legend>
       <input
-        className="news-input"
+        className="newsInput"
         ref={(node) => (email = node)}
         type="email"
         placeholder="Your email"
       />
-      <button className="button news-btn" onClick={submit}>
+      <button className={`button ${styles.newsBtn}`} onClick={submit}>
         Submit
       </button>
       <div>

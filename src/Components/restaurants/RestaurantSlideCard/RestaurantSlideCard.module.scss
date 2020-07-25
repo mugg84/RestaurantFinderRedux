@@ -31,7 +31,7 @@
   }
 }
 
-.card-front {
+.cardFront {
   position: absolute;
   background-color: #f1f1f1;
   width: 100%;
@@ -46,26 +46,26 @@
     @include box-shadow(10px, 10px, 10px, 10px);
   }
 
-  &:hover .card-image {
+  &:hover .cardImage {
     @include transform-scale(1.1);
   }
 }
 
-.card-image-holder {
+.cardImageHolder {
   height: 50%;
   overflow: hidden;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 }
 
-.card-image {
+.cardImage {
   background-size: cover;
   height: 100%;
   width: 100%;
   @include transition(all, 1s, 0.2s);
 }
 
-.card-text {
+.cardText {
   height: 50%;
   padding: 0 2rem 2rem 2rem;
 
@@ -82,8 +82,31 @@
   }
 }
 
+.restaurant .react-multi-carousel-list {
+  padding: 2rem 0;
+  @include box-shadow(0, 0, 10px, 0);
+}
+
+.react-multi-carousel-item {
+  @include flex(stretch, center, row);
+}
+
+
+
+h3,
+.slide-cardDetails p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slide-cardDetails p {
+  margin: 0 1rem;
+  color: $color-text;
+}
+
 @media only screen and (max-width: 900px) {
-  card-front {
+  cardFront {
     transition: none;
 
     &:hover {
@@ -91,18 +114,18 @@
       @include box-shadow(0, 4px, 8px, 0);
     }
 
-    &:hover .card-image {
+    &:hover .cardImage {
       @include transform-scale(1);
     }
   }
 
-  .card-image {
+  .cardImage {
     transition: none;
   }
 }
 
 @media only screen and (max-width: 450px) {
-  .card-image-holder {
+  .cardImageHolder {
     width: 100%;
   }
 }

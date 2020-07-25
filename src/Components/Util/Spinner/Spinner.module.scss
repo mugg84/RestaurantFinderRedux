@@ -1,0 +1,12 @@
+@import '../../../style/variables';
+@import '../../../style/global';
+@import '../../../style/mixin';
+
+.spinner {
+  position: absolute;
+  display: block;
+  margin: -1.5rem;
+  width: 3rem;
+  top: 50%;
+  left: 50%;
+}

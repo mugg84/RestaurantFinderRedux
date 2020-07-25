@@ -2,15 +2,7 @@
 @import '../../../style/global';
 @import '../../../style/mixin';
 
-.nav-home li:first-child a {
-  color: $color-primary;
-}
-
-.nav-home .fa-home {
-  color: $color-primary;
-}
-
-.main-home {
+.mainHome {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url('../../../Images/adils-photography-gmo6Ok9G0U8-unsplash.jpg');
 
@@ -22,7 +14,7 @@
 }
 
 @media only screen and (max-width: 450px) {
-  .main-home {
+  .mainHome {
     height: 80vh;
   }
 }

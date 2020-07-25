@@ -1,14 +1,14 @@
 import React from 'react';
-import MailchimpSubscribe from '../../Util/MailchimpSub';
-import CustomForm from '../../Util/CustomForm';
+import MailchimpSubscribe from '../../Util/MailchimpSub/MailchimpSub';
+import CustomForm from '../../Util/CustomForm/CustomForm';
 import { Link } from 'react-router-dom';
 
-import './Footer.scss';
+import styles from './Footer.module.scss';
 
 function Footer() {
   return (
     <footer>
-      <section className="newsletter">
+      <section className={styles.newsletter}>
         <MailchimpSubscribe
           render={({ subscribe, status, message }) => (
             <CustomForm
@@ -19,14 +19,14 @@ function Footer() {
           )}
         />
       </section>
-      <section className="footer-items">
-        <ul className="top-list">
-          <li className="footer-logo">
+      <section className={styles.footerItems}>
+        <ul className={styles.topList}>
+          <li className={styles.footerLogo}>
             <i className="fas fa-pizza-slice"></i>Food finder
           </li>
           <li>
             Explore
-            <ul className="nested-list">
+            <ul className={styles.nestedList}>
               <li>
                 <Link to="/">Home</Link>
               </li>
@@ -37,7 +37,7 @@ function Footer() {
           </li>
           <li>
             Visit
-            <ul className="nested-list">
+            <ul className={styles.nestedList}>
               <li>7 Some Street</li>
               <li>SW9 999</li>
               <li>London, UK</li>
@@ -45,7 +45,7 @@ function Footer() {
           </li>
           <li>
             Follow
-            <ul className="nested-list">
+            <ul className={styles.nestedList}>
               <li>Instagram</li>
               <li>Linkedln</li>
             </ul>

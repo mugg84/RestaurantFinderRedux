@@ -3,16 +3,16 @@ import { connect } from 'react-redux';
 import { getRestaurantInfo } from '../../../actions/restaurantAction';
 import { Link } from 'react-router-dom';
 import Navbar from '../../layout/Navbar/Navbar';
-import Review from '../../Util/Review';
+import Review from '../../Util/Review/Review';
 import Footer from '../../layout/Footer/Footer';
-import Spinner from '../../Util/Spinner';
+import Spinner from '../../Util/Spinner/Spinner';
 import PropTypes from 'prop-types';
-import SimpleMap from '../../Util/Map';
+import SimpleMap from '../../Util/Map/Map';
 import StarRatings from 'react-star-ratings';
 import Fade from 'react-reveal/Fade';
 import { v4 as uuidv4 } from 'uuid';
 
-import './RestaurantInfo.scss';
+import styles from './RestaurantInfo.module.scss';
 
 const Restaurant = ({ match, loading, restaurant, getRestaurantInfo }) => {
   useEffect(() => {
@@ -40,12 +40,12 @@ const Restaurant = ({ match, loading, restaurant, getRestaurantInfo }) => {
         } = restaurant;
 
         return (
-          <section className="restaurant-info">
-            <Navbar className="nav-info" />
+          <section className={styles.restaurantInfo}>
+            <Navbar className="navInfo" />
 
-            <section className="restaurant-display">
-              <article className="restaurant-display-right">
-                <hgroup className="restaurant-display-info">
+            <section className={styles.restaurantDisplay}>
+              <article className={styles.restaurantDisplayright}>
+                <hgroup className={styles.restaurantDisplayInfo}>
                   <Fade left>
                     <h2>{name}</h2>
                   </Fade>
@@ -63,9 +63,9 @@ const Restaurant = ({ match, loading, restaurant, getRestaurantInfo }) => {
                   {price && <p>Price: {price}</p>}
                 </hgroup>
                 <Fade>
-                  <figure className="restaurant-img">
+                  <figure className={styles.restaurantImg}>
                     <img
-                      id="first"
+                      id={styles.first}
                       src={
                         photos.length
                           ? photos[0]
@@ -92,7 +92,7 @@ const Restaurant = ({ match, loading, restaurant, getRestaurantInfo }) => {
                   </figure>
                 </Fade>
 
-                <ul className="restaurant-reviews">
+                <ul className={styles.restaurantReviews}>
                   <h3>{reviews && reviews.length} Reviews</h3>
                   {reviews &&
                     reviews.map((review) => (
@@ -102,11 +102,11 @@ const Restaurant = ({ match, loading, restaurant, getRestaurantInfo }) => {
                     ))}
                 </ul>
 
-                <Link to="/" className="backButton button">
+                <Link to="/" className={`${styles.backButton} button`}>
                   Back to Search
                 </Link>
               </article>
-              <aside className="restaurant-display-left">
+              <aside className={styles.restaurantDisplayLeft}>
                 <figure>
                   <SimpleMap coord={coordinates} />
                   <figcaption>

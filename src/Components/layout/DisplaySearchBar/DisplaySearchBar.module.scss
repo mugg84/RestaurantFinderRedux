@@ -8,12 +8,12 @@
   height: 100%;
 }
 
-.searchBar-form {
+.searchBarForm {
   @include flex(stretch, space-evenly, column);
   width: 70%;
 }
 
-.searchBar-sort-options {
+.searchBarSortOptions {
   width: 30%;
   @include flex(center, center, row);
 
@@ -36,7 +36,7 @@
   }
 }
 
-.searchBar-input {
+.searchBarInput {
   @include flex(baseline, center, column);
   z-index: 400;
 
@@ -45,7 +45,7 @@
   }
 }
 
-.searchBar-submit {
+.searchBarSubmit {
   padding-top: 0;
   @include transition(all, 0.8s, 0s);
 
@@ -63,7 +63,7 @@
   margin: 0 4rem;
 }
 
-.alert-holder {
+.alertHolder {
   height: 3rem;
 }
 
@@ -82,7 +82,7 @@
 }
 
 @media only screen and (max-width: 900px) {
-  .searchBar-input input {
+  .searchBarInput input {
     width: 70%;
   }
 }
@@ -94,7 +94,7 @@
     padding: 4rem 6rem;
   }
 
-  .searchBar-sort-options {
+  .searchBarSortOptions {
     width: 100%;
 
     & ul {
@@ -106,7 +106,7 @@
     }
   }
 
-  .searchBar-form {
+  .searchBarForm {
     width: 100%;
   }
 }
@@ -120,11 +120,11 @@
     }
   }
 
-  .searchBar-sort-options li {
+  .searchBarSortOptions li {
     text-align: center;
   }
 
-  .searchBar-input input {
+  .searchBarInput input {
     width: 100%;
   }
 

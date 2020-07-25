@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import './ParallaxPics.scss';
+import styles from './ParallaxPics.module.scss';
 
 const ParallaxPics = () => {
   const [offset, setOffset] = useState(0);
@@ -29,7 +29,7 @@ const ParallaxPics = () => {
   }, [offset]);
 
   return (
-    <section className="parallax">
+    <section className={styles.parallax}>
       <hgroup>
         <h2>Parallax not completed yet. Lorem ipsum dolor sit amet.</h2>
         <p>
@@ -40,13 +40,13 @@ const ParallaxPics = () => {
         </p>
       </hgroup>
 
-      <section className="parPics">
-        <figure style={{ overflow: 'hidden' }} className=" parRight">
-          <div className="parallaxHolder">
+      <section className={styles.parPics}>
+        <figure style={{ overflow: 'hidden' }} className={styles.parRight}>
+          <div className={styles.parallaxHolder}>
             <img
               src={require('../../../Images/eiliv-sonas-aceron-ZuIDLSz3XLg-unsplash.jpg')}
               alt="parallaxHolder"
-              className="parallax"
+              className={styles.parallax}
               style={{
                 transform: `translateY(${offset * 0.2}px)`,
               }}
@@ -54,12 +54,12 @@ const ParallaxPics = () => {
           </div>
         </figure>
 
-        <figure style={{ overflow: 'hidden' }} className="parLeft">
-          <div className="parallaxHolder">
+        <figure style={{ overflow: 'hidden' }} className={styles.parLeft}>
+          <div className={styles.parallaxHolder}>
             <img
               src={require('../../../Images/joseph-gonzalez-fdlZBWIP0aM-unsplash.jpg')}
               alt="parallaxHolder"
-              className="parallax"
+              className={styles.parallax}
               style={{
                 transform: `translateY(${offset * 0.2}px)`,
               }}

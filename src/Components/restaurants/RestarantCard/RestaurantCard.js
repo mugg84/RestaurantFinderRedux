@@ -2,25 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import './RestaurantCard.scss';
+import styles from './RestaurantCard.module.scss';
 
 const RestaurantCardList = ({ restaurant, id }) => {
   const { image, name, phone, price, categories, address } = restaurant;
   return (
-    <section className="card">
-      <section className="card-front">
+    <section className={styles.card}>
+      <section className={styles.cardFront}>
         <Link to={`/restaurant/${id}`}>
-          <figure className="card-image-holder">
+          <figure className={styles.cardImageHolder}>
             <div
-              className="card-image"
+              className={styles.cardImage}
               style={{ backgroundImage: `url(${image})` }}
             ></div>
           </figure>
-          <article className="card-text">
-            <div className="card-title">
+          <article className={styles.cardText}>
+            <div className={styles.cardTitle}>
               <h3>{name}</h3>
             </div>
-            <div className="card-details">
+            <div className={styles.cardDetails}>
               <p>Address: {address}</p>
               <p>Phone: {phone}</p>
               <p>Cousine: {categories}</p>

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './Review.module.scss';
+
 const Review = ({ review }) => {
   const {
     text,
@@ -11,12 +13,12 @@ const Review = ({ review }) => {
 
   return (
     <>
-      <figure className="review-user">
+      <figure className={styles.reviewUser}>
         <img
           src={
             image_url
               ? image_url
-              : require('../../Images/no-image-avaiable.jpg')
+              : require('../../../Images/no-image-avaiable.jpg')
           }
           alt={name}
         />
@@ -26,7 +28,7 @@ const Review = ({ review }) => {
         </figcaption>
       </figure>
 
-      <div className="review-text">
+      <div className={styles.reviewText}>
         {text}{' '}
         <a
           style={{ color: 'var($color-primary)' }}

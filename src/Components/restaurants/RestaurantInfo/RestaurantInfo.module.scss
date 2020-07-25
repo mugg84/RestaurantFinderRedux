@@ -8,7 +8,7 @@
   display: inline-block;
 }
 
-.restaurant-display {
+.restaurantDisplay {
   margin: 4rem 8rem;
   display: flex;
 
@@ -26,7 +26,7 @@
   }
 }
 
-.restaurant-display-info {
+.restaurantDisplayInfo {
   margin-bottom: 2rem;
 
   & h2 {
@@ -40,11 +40,11 @@
   }
 }
 
-.restaurant-display-right {
+.restaurantDisplayright {
   width: 70%;
 }
 
-.restaurant-display-left {
+.restaurantDisplayLeft {
   width: 30%;
   height: 100%;
   @include flex(stretch, flex-end, row);
@@ -59,7 +59,7 @@
   }
 }
 
-.restaurant-img {
+.restaurantImg {
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -86,22 +86,8 @@ aside figure {
   @include box-shadow(5px, 5px, 5px, 5px);
 }
 
-.map-holder {
-  height: 30rem;
-  width: 30rem;
 
-  & div :first-child {
-    @include border-radius(1rem);
-  }
-
-  & i {
-    font-size: 3.5rem;
-    color: $color-primary;
-    text-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
-}
-
-.restaurant-reviews {
+.restaurantReviews {
   flex-direction: column;
   padding: 4rem 0;
 
@@ -113,47 +99,32 @@ aside figure {
   }
 }
 
-.review-user {
-  @include flex(center, flex-start, row);
-  padding: 4rem 0 2rem 0;
 
-  & img {
-    height: 5rem;
-    width: 5rem;
-    margin-right: 1rem;
-    @include border-radius(50rem);
-  }
-}
-
-.review-text {
-  border-bottom: 1px solid $color-primary;
-  padding-bottom: 4rem;
-}
 
 @media only screen and (max-width: 1124px) {
-  .restaurant-display {
+  .restaurantDisplay {
     margin: 4rem;
   }
 
-  .restaurant-display-right {
+  .restaurantDisplayright {
     width: 60%;
   }
 
-  .restaurant-display-left {
+  .restaurantDisplayLeft {
     width: 40%;
   }
 }
 
 @media only screen and (orientation: portrait) and (max-width: 1024px) and (min-width: 648px) {
-  .restaurant-display {
+  .restaurantDisplay {
     flex-direction: column;
   }
 
-  .restaurant-img {
+  .restaurantImg {
     height: 25rem;
   }
 
-  .restaurant-display-info {
+  .restaurantDisplayInfo {
     font-size: 130%;
 
     & h2 {
@@ -161,12 +132,12 @@ aside figure {
     }
   }
 
-  .restaurant-display-right,
-  .restaurant-display-left {
+  .restaurantDisplayright,
+  .restaurantDisplayLeft {
     width: 100%;
   }
 
-  .restaurant-display-left {
+  .restaurantDisplayLeft {
     justify-content: center;
 
     & figure {
@@ -180,36 +151,31 @@ aside figure {
 }
 
 @media only screen and (max-width: 900px) {
-  .restaurant-display-left figure {
+  .restaurantDisplayLeft figure {
     width: 27rem;
-  }
-
-  .map-holder {
-    height: 27rem;
-    width: 100%;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .restaurant-img {
+  .restaurantImg {
     height: 35rem;
   }
 }
 
 @media only screen and (max-width: 680px) {
-  .restaurant-display {
+  .restaurantDisplay {
     flex-direction: column;
   }
 
-  .restaurant-reviews {
+  .restaurantReviews {
     padding-bottom: 0;
   }
 
-  .restaurant-display-right {
+  .restaurantDisplayright {
     width: 100%;
   }
 
-  .restaurant-display-left {
+  .restaurantDisplayLeft {
     width: 100%;
     @include flex(center, center, row);
     margin: 4rem 0;

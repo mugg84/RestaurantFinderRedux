@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import jsonp from 'jsonp';
 import toQueryString from 'to-querystring';
-import CustomForm from './CustomForm';
+import CustomForm from '../CustomForm/CustomForm';
 
 let MAILCHIMP_URL = process.env.REACT_APP_MAILCHIMP_URL;
 

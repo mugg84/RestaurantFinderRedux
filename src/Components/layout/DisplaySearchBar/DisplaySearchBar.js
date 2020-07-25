@@ -7,7 +7,7 @@ import Script from 'react-load-script';
 import Fade from 'react-reveal/Fade';
 import Alert from '../Alert/Alert';
 
-import './DisplaySearchBar.scss';
+import styles from './DisplaySearchBar.module.scss';
 
 const DisplaySearchBar = ({
   renderSortByOptions,
@@ -22,15 +22,15 @@ const DisplaySearchBar = ({
   const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
 
   return (
-    <section className="searchBar">
-      <form onSubmit={onSubmit} className="searchBar-form">
+    <section className={styles.searchBar}>
+      <form onSubmit={onSubmit} className={styles.searchBarForm}>
         <legend className="title">
           <Fade left>
             <h1>Where are you going to eat tonight?</h1>
           </Fade>
         </legend>
         <Fade>
-          <fieldset className="searchBar-input">
+          <fieldset className={styles.searchBarInput}>
             {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
             <input
               type="text"
@@ -48,28 +48,31 @@ const DisplaySearchBar = ({
               onChange={handleChange}
               value={what}
             />
-            <div className="alert-holder">
+            <div className={styles.alertHolder}>
               <Alert />
             </div>
           </fieldset>
 
-          <fieldset className="searchBar-submit">
+          <fieldset className={styles.searchBarSubmit}>
             <input
-              className="myButton button"
+              className={`${styles.myButton} button`}
               type="submit"
               name="submit"
               value="Search"
             ></input>
 
             {restaurants.length > 0 && (
-              <button className="clearButton button" onClick={clearSearch}>
+              <button
+                className={`${styles.clearButton} button`}
+                onClick={clearSearch}
+              >
                 Clear
               </button>
             )}
           </fieldset>
         </Fade>
       </form>
-      <article className="searchBar-sort-options">
+      <article className={styles.searchBarSortOptions}>
         <Fade>
           <ul>{renderSortByOptions()}</ul>
         </Fade>

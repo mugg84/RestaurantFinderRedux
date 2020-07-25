@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 
-import './RestaurantSlideCard.scss';
+import styles from './RestaurantSlideCard.module.scss';
 
 const RestaurantSlideCard = ({ restaurant }) => {
   const { image, name, phone, price, categories, id, rating } = restaurant;
   //might use phone for button
   return (
     <Link to={`/restaurant/${id}`}>
-      <section className="card">
-        <div className="card-front">
-          <figure className="card-image-holder">
+      <section className={styles.card}>
+        <div className={styles.cardFront}>
+          <figure className={styles.cardImageHolder}>
             <div
-              className="card-image"
+              className={styles.cardImage}
               style={{
                 backgroundImage: `url(${
                   image
@@ -24,11 +24,11 @@ const RestaurantSlideCard = ({ restaurant }) => {
               }}
             ></div>
           </figure>
-          <article className="card-text">
-            <div className="card-title">
+          <article className={styles.cardText}>
+            <div className={styles.cardTitle}>
               <h3>{name}</h3>
             </div>
-            <div className="card-details">
+            <div className={styles.cardDetails}>
               <StarRatings
                 rating={rating}
                 numberOfStars={5}

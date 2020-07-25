@@ -4,7 +4,8 @@
 
 nav {
   @include flex(center, space-between, row);
-  position: fixed;
+  /*position: fixed;*/
+  position: absolute;
   padding: 0.7rem 2rem;
   width: 100%;
   height: 6rem;
@@ -26,16 +27,8 @@ nav {
   }
 }
 
-.nav-small-icon {
+.navSmallIcon {
   display: none;
-}
-
-.sticky {
-  position: absolute;
-
-  & p {
-    color: $color-primary;
-  }
 }
 
 .fixed {
@@ -48,15 +41,7 @@ nav {
   }
 }
 
-.hide {
-  top: -400px;
-}
-
-.show {
-  top: 0;
-}
-
-.nav-info {
+.navInfo {
   background-color: $color-primary;
   position: relative;
 
@@ -65,13 +50,37 @@ nav {
   }
 }
 
-.logo-small {
+.sticky {
+  position: absolute;
+
+  & p {
+    color: $color-primary;
+  }
+}
+
+.hide {
+  top: -400px;
+}
+
+.show {
+  top: 0;
+}
+
+.logoSmall {
   display: none;
+}
+
+.navHome li:first-child a {
+  color: $color-primary;
+}
+
+.navHome .fa-home {
+  color: $color-primary;
 }
 
 @media only screen and (orientation: landscape) and (max-width: 1024px) {
   nav {
-    height: 4rem;
+    height: 5rem;
   }
 
   .fixed {
@@ -97,19 +106,19 @@ nav {
     }
   }
 
-  .nav-big-icon {
+  .navBigIcon {
     display: none;
   }
 
-  .nav-small-icon {
+  .navSmallIcon {
     display: flex;
   }
 
-  .logo-big {
+  .logoBig {
     display: none;
   }
 
-  .logo-small {
+  .logoSmall {
     display: block;
   }
 }

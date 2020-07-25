@@ -10,7 +10,7 @@ import ParallaxPics from '../../layout/ParallaxPics/ParallaxPics';
 import Footer from '../../layout/Footer/Footer';
 import { Waypoint } from 'react-waypoint';
 
-import './Home.scss';
+import styles from './Home.module.scss';
 
 const Home = ({ fetchCoordinates }) => {
   useEffect(() => {
@@ -18,7 +18,7 @@ const Home = ({ fetchCoordinates }) => {
     window.scrollTo(0, 0);
     // eslint-disable-next-line
   }, []);
-
+  /*
   const handleWaypointEnter = () => {
     document.querySelector('.fixed').style.opacity = '0';
   };
@@ -26,17 +26,19 @@ const Home = ({ fetchCoordinates }) => {
     document.querySelector('.fixed').style.opacity = '100';
   };
 
-  return (
-    <section className="main-home">
-      <>
-        <Navbar className="sticky nav-home" />
-        <Search />
-        <Waypoint
-          onEnter={handleWaypointEnter}
+   onEnter={handleWaypointEnter}
           onLeave={handleWaypointLeave}
-          topOffset="7%"
-        />
-        <Navbar className="fixed" />
+
+           <Navbar className="fixed" />
+  */
+
+  return (
+    <section className={styles.mainHome}>
+      <>
+        <Navbar className="sticky navHome" />
+        <Search />
+        <Waypoint topOffset="7%" />
+
         <DisplayRestaurants />
         <DisplatDefaultRestaurants />
         <ParallaxPics />
