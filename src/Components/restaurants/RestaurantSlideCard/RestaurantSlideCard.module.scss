@@ -1,5 +1,5 @@
 @import '../../../style/variables';
-@import '../../../style/global';
+
 @import '../../../style/mixin';
 
 .card {
@@ -81,17 +81,6 @@
     overflow: hidden;
   }
 }
-
-.restaurant .react-multi-carousel-list {
-  padding: 2rem 0;
-  @include box-shadow(0, 0, 10px, 0);
-}
-
-.react-multi-carousel-item {
-  @include flex(stretch, center, row);
-}
-
-
 
 h3,
 .slide-cardDetails p {

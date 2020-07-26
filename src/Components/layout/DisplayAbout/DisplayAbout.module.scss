@@ -1,5 +1,4 @@
 @import '../../../style/variables';
-@import '../../../style/global';
 @import '../../../style/mixin';
 
 h2 {
@@ -7,8 +6,6 @@ h2 {
   text-align: center;
   margin-top: 0;
 }
-
-
 
 .fixed {
   top: -400px;
@@ -200,11 +197,6 @@ h2 {
     font-size: 3rem;
   }
 
-
-  .sticky p {
-    margin-bottom: 0;
-  }
-
   .about {
     background-size: cover;
     height: 60rem;
@@ -246,8 +238,6 @@ h2 {
 }
 
 @media only screen and (max-width: 450px) {
-
-
   .aboutText * {
     text-align: left;
   }
@@ -265,9 +255,9 @@ h2 {
       'two'
       'six';
 
-      & p {
-        font-size: 1.5rem;
-      }
+    & p {
+      font-size: 1.5rem;
+    }
   }
 
   .three,

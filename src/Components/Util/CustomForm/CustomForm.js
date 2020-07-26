@@ -8,7 +8,7 @@ const CustomForm = ({ status, onValidated }) => {
     e.preventDefault();
     const emailValue = Object.assign({}, email);
 
-    document.querySelector(`.${styles.newsInput}`).value = '';
+    // document.querySelector(`.${styles.newsInput}`).value = '';
 
     return onValidated({
       EMAIL: emailValue.value,
@@ -22,7 +22,7 @@ const CustomForm = ({ status, onValidated }) => {
         <h3>Want some Inbox love?</h3>
       </legend>
       <input
-        className="newsInput"
+        className={styles.newsInput}
         ref={(node) => (email = node)}
         type="email"
         placeholder="Your email"

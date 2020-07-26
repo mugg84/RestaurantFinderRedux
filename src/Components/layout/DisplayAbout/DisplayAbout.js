@@ -1,26 +1,11 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
-import { Waypoint } from 'react-waypoint';
+
 import Carousel from 'react-multi-carousel';
 import Fade from 'react-reveal/Fade';
 
 import styles from './DisplayAbout.module.scss';
 
 const DisplayAbout = () => {
-  /*
-  const handleWaypointEnter = () => {
-    console.log(`.${styles.fixed}`);
-    document.querySelector(`.${styles.fixed}`).styles.opacity = '0';
-  };
-  const handleWaypointLeave = () => {
-    document.querySelector(`.${styles.fixed}`).styles.opacity = '100';
-  };
-
-  onEnter={handleWaypointEnter}
-        onLeave={handleWaypointLeave}
-        topOffset="10%"
-*/
-
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -41,9 +26,6 @@ const DisplayAbout = () => {
           </Fade>
         </hgroup>
       </section>
-
-      <Waypoint />
-      <Navbar className={styles.fixed} />
 
       <section className={styles.goal}>
         <h2>Our Goal</h2>

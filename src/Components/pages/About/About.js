@@ -13,7 +13,7 @@ const About = () => {
 
   return (
     <section className={styles.aboutContainer}>
-      <Navbar className="sticky nav-about" />
+      <Navbar className="sticky navAbout" />
       <DisplayAbout />
       <Footer />
     </section>

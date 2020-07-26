@@ -1,5 +1,5 @@
 @import '../../../style/variables';
-@import '../../../style/global';
+
 @import '../../../style/mixin';
 
 .mapHolder {
@@ -16,7 +16,6 @@
     text-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
 }
-
 
 @media only screen and (max-width: 900px) {
   .mapHolder {

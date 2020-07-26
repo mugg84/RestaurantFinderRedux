@@ -1,6 +1,10 @@
 @import '../../../style/variables';
-@import '../../../style/global';
+
 @import '../../../style/mixin';
+
+.active {
+  color: $color-primary;
+}
 
 nav {
   @include flex(center, space-between, row);
@@ -47,6 +51,16 @@ nav {
 
   & * {
     color: $color-light;
+  }
+}
+
+.navAbout {
+  & li:nth-child(2) a {
+    color: $color-primary;
+  }
+
+  & .fa-info-circle {
+    color: $color-primary;
   }
 }
 

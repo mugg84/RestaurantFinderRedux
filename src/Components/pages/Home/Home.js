@@ -8,7 +8,6 @@ import DisplatDefaultRestaurants from '../../layout/DisplayDefaultRestaurants/Di
 import DisplayRestaurants from '../../layout/DisplayRestaurants/DisplayRestaurants';
 import ParallaxPics from '../../layout/ParallaxPics/ParallaxPics';
 import Footer from '../../layout/Footer/Footer';
-import { Waypoint } from 'react-waypoint';
 
 import styles from './Home.module.scss';
 
@@ -18,26 +17,12 @@ const Home = ({ fetchCoordinates }) => {
     window.scrollTo(0, 0);
     // eslint-disable-next-line
   }, []);
-  /*
-  const handleWaypointEnter = () => {
-    document.querySelector('.fixed').style.opacity = '0';
-  };
-  const handleWaypointLeave = () => {
-    document.querySelector('.fixed').style.opacity = '100';
-  };
-
-   onEnter={handleWaypointEnter}
-          onLeave={handleWaypointLeave}
-
-           <Navbar className="fixed" />
-  */
 
   return (
     <section className={styles.mainHome}>
       <>
         <Navbar className="sticky navHome" />
         <Search />
-        <Waypoint topOffset="7%" />
 
         <DisplayRestaurants />
         <DisplatDefaultRestaurants />

@@ -1,5 +1,5 @@
 @import '../../../style/variables';
-@import '../../../style/global';
+
 @import '../../../style/mixin';
 
 .searchBar {
@@ -70,10 +70,6 @@
 @media only screen and (orientation: landscape) and (max-width: 1024px) {
   .searchBar h1 {
     font-size: 4rem;
-  }
-
-  .searchBar * {
-    font-size: 90%;
   }
 
   .aboutText {
