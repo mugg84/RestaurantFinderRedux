@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 import { handleScriptLoad } from '../../../helpers/Autocomplete';
 import { getRestaurants, setAlert } from '../../../actions/restaurantAction';
 
-import './Search.scss';
-
+import styles from './Search.module.scss';
 const Search = ({ getRestaurants, setAlert }) => {
   const [where, setWhere] = useState('');
   const [what, setWhat] = useState('');
@@ -21,7 +20,7 @@ const Search = ({ getRestaurants, setAlert }) => {
   // give active class to option selected
   const getSortByClass = (sortByOption) => {
     if (sortBy === sortByOption) {
-      return 'active';
+      return styles.active;
     } else {
       return '';
     }

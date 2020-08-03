@@ -2,9 +2,12 @@ let autocomplete, setWhere;
 
 export const handleScriptLoad = () => {
   // Initialize Google Autocomplete
+
   /*global google*/ autocomplete = new google.maps.places.Autocomplete(
     document.getElementById('autocomplete')
   );
+
+  console.log(autocomplete);
 
   // address.
   autocomplete.setFields(['address_components', 'formatted_address']);
