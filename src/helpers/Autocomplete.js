@@ -7,8 +7,6 @@ export const handleScriptLoad = () => {
     document.getElementById('autocomplete')
   );
 
-  console.log(autocomplete);
-
   // address.
   autocomplete.setFields(['address_components', 'formatted_address']);
 
