@@ -3,8 +3,8 @@ import axios from 'axios';
 
 jest.mock('axios');
 
-describe('testing searchRestaurantsInfo', () => {
-  test('returns object with restaurant infos', async () => {
+describe('Testing searchRestaurantsInfo', () => {
+  test('Returns object with restaurant info', async () => {
     const response = {
       data: {
         name: 'Casa Romana',
@@ -98,5 +98,14 @@ describe('testing searchRestaurantsInfo', () => {
     await expect(
       Yelp.searchRestaurantsInfo('q_IoMdeM57U70GwqjXxGJw')
     ).resolves.toEqual(params);
+  });
+
+  test('Returns error if responses are empty', async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve({}));
+    axios.get.mockImplementationOnce(() => Promise.resolve({}));
+
+    await expect(
+      Yelp.searchRestaurantsInfo('q_IoMdeM57U70GwqjXxGJw')
+    ).resolves.toBe('Error');
   });
 });
