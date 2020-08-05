@@ -20,7 +20,7 @@ const DisplaySearchBar = ({
   clearSearch,
 }) => {
   const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
-
+  // {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
   return (
     <section className={styles.searchBar}>
       <form onSubmit={onSubmit} className={styles.searchBarForm}>
@@ -31,7 +31,6 @@ const DisplaySearchBar = ({
         </legend>
         <Fade>
           <fieldset className={styles.searchBarInput}>
-            {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
             <input
               type="text"
               name="where"
