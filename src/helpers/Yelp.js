@@ -59,6 +59,10 @@ const Yelp = {
         }
       );
 
+      /*   if (response.length === 0 || responseRew.length === 0) {
+        return [];
+      } */
+
       return getRestaurantInfoHelper(response, responseRew);
     } catch (e) {
       console.log(e);

@@ -19,8 +19,9 @@ export const getRestaurantInfoHelper = (response, responseRew) => {
   return parameters;
 };
 
-export const searchRestaurantsHelper = (response) =>
-  response.data.businesses.map((business) => {
+export const searchRestaurantsHelper = (response) => {
+  console.log(response);
+  return response.data.businesses.map((business) => {
     return {
       id: business.id,
       image: business.image_url,
@@ -32,6 +33,7 @@ export const searchRestaurantsHelper = (response) =>
       address: business.location.display_address[0],
     };
   });
+};
 
 export const searchDefaultRestaurantsHelper = (response) =>
   response.data.businesses.map((business) => {
