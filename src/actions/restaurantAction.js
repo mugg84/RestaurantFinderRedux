@@ -1,8 +1,11 @@
 import Yelp from '../helpers/Yelp';
 import { getCurrentPosition } from '../helpers/GeoLocation';
+import {
+  getRestaurantsHelper,
+  getRestaurantsInfoHelper,
+} from '../helpers/utils';
 
 import {
-  GET_RESTAURANTS,
   GET_INFO_RESTAURANT,
   GET_DEFAULT_RESTAURANTS,
   GET_DEFAULT_THAI_RESTAURANTS,
@@ -19,37 +22,13 @@ import {
 export const getRestaurants = (text) => async (dispatch) => {
   dispatch(setLoading());
 
-  let restaurants = await Yelp.searchRestaurants(text);
-
-  if (restaurants === [] || restaurants.length === 0) {
-    return dispatch(setAlert('No restaurants in the area'));
-  } else if (restaurants === 'Error') {
-    return dispatch(setAlert('Invalid search. Try different input'));
-  } else {
-    dispatch({
-      type: GET_RESTAURANTS,
-      payload: restaurants,
-    });
-  }
+  getRestaurantsHelper(text, dispatch);
 };
 
 // Get Restaurants Info
 export const getRestaurantInfo = (id) => async (dispatch) => {
   dispatch(setLoading());
-  let restaurant = await Yelp.searchRestaurantsInfo(id);
-
-  if (restaurant.length === 0) {
-    return dispatch(
-      setAlert('Restaurant info not available. Please try again later')
-    );
-  } else if (restaurant === 'Error') {
-    return dispatch(setAlert('Something went wrong'));
-  } else {
-    dispatch({
-      type: GET_INFO_RESTAURANT,
-      payload: restaurant,
-    });
-  }
+  getRestaurantsInfoHelper(id, dispatch);
 };
 
 // Get default restaurants

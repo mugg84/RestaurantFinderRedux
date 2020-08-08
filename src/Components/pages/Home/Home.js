@@ -23,7 +23,6 @@ const Home = ({ fetchCoordinates }) => {
       <>
         <Navbar className="sticky navHome" />
         <Search />
-
         <DisplayRestaurants />
         <DisplatDefaultRestaurants />
         <ParallaxPics />

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import {
-  getRestaurantInfoHelper,
+  searchRestaurantInfoHelper,
   searchRestaurantsHelper,
   searchDefaultRestaurantsHelper,
 } from './utils';
@@ -30,8 +30,7 @@ const Yelp = {
 
       return searchRestaurantsHelper(response);
     } catch (e) {
-      console.log(e);
-      return 'Error';
+      throw new Error(e);
     }
   },
 
@@ -63,10 +62,9 @@ const Yelp = {
         return [];
       } */
 
-      return getRestaurantInfoHelper(response, responseRew);
+      return searchRestaurantInfoHelper(response, responseRew);
     } catch (e) {
-      console.log(e);
-      return 'Error';
+      throw new Error(e);
     }
   },
 
