@@ -122,3 +122,69 @@ export const getDefaultRestaurantsHelper = async (location, dispatch) => {
     dispatch(setAlert('Something went wrong'));
   }
 };
+
+export const getDefaultThaiRestaurantsHelper = async (location, dispatch) => {
+  try {
+    let defaultThaiRestaurants = await Yelp.SearchDefaultThaiRestaurants(
+      location
+    );
+
+    if (defaultThaiRestaurants === [] || defaultThaiRestaurants.length === 0) {
+      return dispatch(setAlert('No Thai restaurants in the area'));
+    } else {
+      dispatch({
+        type: GET_DEFAULT_THAI_RESTAURANTS,
+        payload: defaultThaiRestaurants,
+      });
+    }
+  } catch (error) {
+    dispatch(setAlert('Something went wrong'));
+  }
+};
+
+export const getDefaultItalianRestaurantsHelper = async (
+  location,
+  dispatch
+) => {
+  try {
+    let defaultItalianRestaurants = await Yelp.SearchDefaultItalianRestaurants(
+      location
+    );
+
+    if (
+      defaultItalianRestaurants === [] ||
+      defaultItalianRestaurants.length === 0
+    ) {
+      return dispatch(setAlert('No Italian restaurants in the area'));
+    } else {
+      dispatch({
+        type: GET_DEFAULT_ITALIAN_RESTAURANTS,
+        payload: defaultItalianRestaurants,
+      });
+    }
+  } catch (error) {
+    dispatch(setAlert('Something went wrong'));
+  }
+};
+
+export const getDefaultIndianRestaurantsHelper = async (location, dispatch) => {
+  try {
+    let defaultIndianRestaurants = await Yelp.SearchDefaultIndianRestaurants(
+      location
+    );
+
+    if (
+      defaultIndianRestaurants === [] ||
+      defaultIndianRestaurants.length === 0
+    ) {
+      return dispatch(setAlert('No Indian restaurants in the area'));
+    } else {
+      dispatch({
+        type: GET_DEFAULT_INDIAN_RESTAURANTS,
+        payload: defaultIndianRestaurants,
+      });
+    }
+  } catch (error) {
+    dispatch(setAlert('Something went wrong'));
+  }
+};

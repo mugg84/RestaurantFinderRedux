@@ -30,8 +30,8 @@ const DisplayDefaultRestaurants = ({
     if (location) {
       if (defaultRestaurants.length === 0) {
         getDefaultRestaurants(location);
-        /*
         getDefaultThaiRestaurants(location);
+        /*
         getDefaultItalianRestaurants(location);
         getDefaultIndianRestaurants(location); */
       }

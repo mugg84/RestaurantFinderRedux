@@ -111,7 +111,7 @@ const Yelp = {
       return searchDefaultRestaurantsHelper(response);
     } catch (e) {
       console.log(e);
-      return 'Error';
+      throw new Error(e);
     }
   },
 
@@ -135,7 +135,7 @@ const Yelp = {
       return searchDefaultRestaurantsHelper(response);
     } catch (e) {
       console.log(e);
-      return 'Error';
+      throw new Error(e);
     }
   },
 
@@ -159,7 +159,7 @@ const Yelp = {
       return searchDefaultRestaurantsHelper(response);
     } catch (e) {
       console.log(e);
-      return 'Error';
+      throw new Error(e);
     }
   },
 };

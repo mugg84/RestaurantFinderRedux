@@ -4,10 +4,11 @@ import {
   getRestaurantsHelper,
   getRestaurantsInfoHelper,
   getDefaultRestaurantsHelper,
+  getDefaultThaiRestaurantsHelper,
+  getDefaultItalianRestaurantsHelper,
 } from '../helpers/utils';
 
 import {
-  GET_DEFAULT_THAI_RESTAURANTS,
   GET_DEFAULT_ITALIAN_RESTAURANTS,
   GET_DEFAULT_INDIAN_RESTAURANTS,
   CLEAR_SEARCH,
@@ -39,39 +40,13 @@ export const getDefaultRestaurants = (location) => async (dispatch) => {
 
 export const getDefaultThaiRestaurants = (location) => async (dispatch) => {
   if (location.length > 0) {
-    let defaultThaiRestaurants = await Yelp.SearchDefaultThaiRestaurants(
-      location
-    );
-
-    if (defaultThaiRestaurants === [] || defaultThaiRestaurants.length === 0) {
-      return dispatch(setAlert('No thai restaurants in the area'));
-    } else if (defaultThaiRestaurants === 'Error') {
-      return dispatch(setAlert('Something went wrong'));
-    } else {
-      dispatch({
-        type: GET_DEFAULT_THAI_RESTAURANTS,
-        payload: defaultThaiRestaurants,
-      });
-    }
+    getDefaultThaiRestaurantsHelper(location, dispatch);
   }
 };
 
 export const getDefaultItalianRestaurants = (location) => async (dispatch) => {
   if (location.length > 0) {
-    let defaultItaRestaurants = await Yelp.SearchDefaultItalianRestaurants(
-      location
-    );
-
-    if (defaultItaRestaurants === [] || defaultItaRestaurants.length === 0) {
-      return dispatch(setAlert('No italian restaurants in the area'));
-    } else if (defaultItaRestaurants === 'Error') {
-      return dispatch(setAlert('Something went wrong'));
-    } else {
-      dispatch({
-        type: GET_DEFAULT_ITALIAN_RESTAURANTS,
-        payload: defaultItaRestaurants,
-      });
-    }
+    getDefaultItalianRestaurantsHelper(location, dispatch);
   }
 };
 
