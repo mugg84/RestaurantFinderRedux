@@ -2,7 +2,7 @@ import Yelp from './Yelp';
 import axios from 'axios';
 
 import {
-  searchRestaurantInfoHelper,
+  searchRestaurantsInfoHelper,
   searchRestaurantsHelper,
   searchDefaultRestaurantsHelper,
 } from './utils';
@@ -10,7 +10,7 @@ import {
 jest.mock('./utils.js');
 jest.mock('axios');
 
-describe('Testing searchRestaurants', () => {
+describe('SearchRestaurants', () => {
   const mock = {};
   beforeAll(() => {
     mock.input = {
@@ -24,29 +24,28 @@ describe('Testing searchRestaurants', () => {
     jest.clearAllMocks();
   });
 
-  test('1 - searchRestaurantsHelper called once', async () => {
+  test('1 - returns something', async () => {
+    axios.get.mockImplementationOnce(() => {
+      const response = { data: { businesses: ['foo'] } };
+      return Promise.resolve(response);
+    });
+    searchRestaurantsHelper.mockImplementation(() => 'foo');
+
+    await expect(Yelp.searchRestaurants(mock.input)).resolves.toEqual('foo');
+  });
+
+  test('2 - searchRestaurantsHelper called once', async () => {
     axios.get.mockImplementationOnce(() => {
       const response = { data: { businesses: ['foo'] } };
       return Promise.resolve(response);
     });
 
-    searchRestaurantsHelper.mockImplementation(() => 'foo');
-
     await expect(Yelp.searchRestaurants(mock.input)).resolves.not.toEqual([]);
     expect(searchRestaurantsHelper).toHaveBeenCalledTimes(1);
   });
 
-  test('2 - if get request empty searchRestaurant returns "[]"', async () => {
-    axios.get.mockImplementationOnce(() => {
-      const response = { data: { businesses: [] } };
-      return Promise.resolve(response);
-    });
-
-    await expect(Yelp.searchRestaurants(mock.input)).resolves.toEqual([]);
-  });
-
-  test('3 - axios.get called once', async () => {
-    axios.get.mockImplementationOnce(() => {
+  test('3 - axios called once', async () => {
+    axios.get.mockImplementation(() => {
       const response = { data: { businesses: ['foo'] } };
       return Promise.resolve(response);
     });
@@ -55,46 +54,70 @@ describe('Testing searchRestaurants', () => {
 
     expect(axios.get).toHaveBeenCalledTimes(1);
   });
+
+  test('4 - if no restaurants returned returns "[]"', async () => {
+    axios.get.mockImplementationOnce(() => {
+      const response = { data: { businesses: [] } };
+      return Promise.resolve(response);
+    });
+
+    await expect(Yelp.searchRestaurants(mock.input)).resolves.toEqual([]);
+  });
+
+  test('5 - if request rejected throws error', async () => {
+    axios.get.mockImplementationOnce(() => {
+      return Promise.rejects();
+    });
+
+    await expect(Yelp.searchRestaurants(mock.input)).rejects.toThrow(Error);
+  });
 });
 
-describe('Testing searchRestaurantsInfo', () => {
+describe('SearchRestaurantsInfo', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  test('4 - searchRestaurantsInfo called once and returns something', async () => {
-    await Yelp.searchRestaurantsInfo('q_IoMdeM57U70GwqjXxGJw');
+  test('7 - returns something', async () => {
+    axios.get.mockImplementation(() => {
+      return Promise.resolve('foo');
+    });
 
-    searchRestaurantInfoHelper.mockImplementation(() => 'foo');
+    searchRestaurantsInfoHelper.mockImplementation(() => 'foo');
 
-    expect(searchRestaurantInfoHelper).toHaveBeenCalledTimes(1);
     await expect(
       Yelp.searchRestaurantsInfo('q_IoMdeM57U70GwqjXxGJw')
     ).resolves.toEqual('foo');
   });
 
-  test('5 - axios.get called twice', async () => {
-    await Yelp.searchRestaurantsInfo('q_IoMdeM57U70GwqjXxGJw');
-
-    expect(axios.get).toHaveBeenCalledTimes(2);
-  });
-});
-
-/* test('Returns error if responses are empty', async () => {
-    searchRestaurantInfoHelper.mockImplementation(() => 'Error');
+  test('8 - axios.get called twice', async () => {
+    axios.get.mockImplementation(() => {
+      return Promise.resolve('foo');
+    });
 
     await expect(
       Yelp.searchRestaurantsInfo('q_IoMdeM57U70GwqjXxGJw')
-    ).resolves.toBe('Error');
-  }); */
-/*  test('Returns "Error" if responses are empty', async () => {
-    searchRestaurantsHelper.mockImplementation(() => 'Error');
+    ).resolves.not.toEqual([]);
+
+    expect(axios.get).toHaveBeenCalledTimes(2);
+  });
+
+  test('9 - if request rejected throws error', async () => {
+    axios.get.mockImplementationOnce(() => {
+      return Promise.rejects();
+    });
 
     await expect(
-      Yelp.searchRestaurants(mock.input)
-    ).resolves.toBe('Error');
-  }); */
+      Yelp.searchRestaurantsInfo('q_IoMdeM57U70GwqjXxGJw')
+    ).rejects.toThrow(Error);
+  });
+});
 
+describe('SearchDefaultRestaurants', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+});
 /*
   test('Returns object with restaurant info', async () => {
     const response = {
@@ -186,7 +209,7 @@ describe('Testing searchRestaurantsInfo', () => {
 
     axios.get.mockImplementationOnce(() => Promise.resolve(response));
     axios.get.mockImplementationOnce(() => Promise.resolve(responseRev));
-    searchRestaurantInfoHelper.mockImplementationOnce(() => params);
+    searchRestaurantsInfoHelper.mockImplementationOnce(() => params);
 
     await expect(
       Yelp.searchRestaurantsInfo('q_IoMdeM57U70GwqjXxGJw')

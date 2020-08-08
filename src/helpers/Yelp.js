@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import {
-  searchRestaurantInfoHelper,
+  searchRestaurantsInfoHelper,
   searchRestaurantsHelper,
   searchDefaultRestaurantsHelper,
 } from './utils';
@@ -58,11 +58,11 @@ const Yelp = {
         }
       );
 
-      /*   if (response.length === 0 || responseRew.length === 0) {
+      if (response.length === 0 && responseRew.length === 0) {
         return [];
-      } */
+      }
 
-      return searchRestaurantInfoHelper(response, responseRew);
+      return searchRestaurantsInfoHelper(response, responseRew);
     } catch (e) {
       throw new Error(e);
     }
@@ -87,8 +87,7 @@ const Yelp = {
 
       return searchDefaultRestaurantsHelper(response);
     } catch (e) {
-      console.log(e);
-      return 'Error';
+      throw new Error(e);
     }
   },
 

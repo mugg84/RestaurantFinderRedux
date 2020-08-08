@@ -3,11 +3,10 @@ import { getCurrentPosition } from '../helpers/GeoLocation';
 import {
   getRestaurantsHelper,
   getRestaurantsInfoHelper,
+  getDefaultRestaurantsHelper,
 } from '../helpers/utils';
 
 import {
-  GET_INFO_RESTAURANT,
-  GET_DEFAULT_RESTAURANTS,
   GET_DEFAULT_THAI_RESTAURANTS,
   GET_DEFAULT_ITALIAN_RESTAURANTS,
   GET_DEFAULT_INDIAN_RESTAURANTS,
@@ -34,18 +33,7 @@ export const getRestaurantInfo = (id) => async (dispatch) => {
 // Get default restaurants
 export const getDefaultRestaurants = (location) => async (dispatch) => {
   if (location.length > 0) {
-    let defaultRestaurants = await Yelp.SearchDefaultRestaurants(location);
-
-    if (defaultRestaurants === [] || defaultRestaurants.length === 0) {
-      return dispatch(setAlert('No restaurants in the area'));
-    } else if (defaultRestaurants === 'Error') {
-      return dispatch(setAlert('Something went wrong', 'error'));
-    } else {
-      dispatch({
-        type: GET_DEFAULT_RESTAURANTS,
-        payload: defaultRestaurants,
-      });
-    }
+    getDefaultRestaurantsHelper(location, dispatch);
   }
 };
 
