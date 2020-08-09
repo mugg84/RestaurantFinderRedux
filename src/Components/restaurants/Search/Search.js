@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import DisplaySearchBar from '../../layout/DisplaySearchBar/DisplaySearchBar';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import { handleScriptLoad } from '../../../helpers/Autocomplete';
 import { getRestaurants, setAlert } from '../../../actions/restaurantAction';
+import DisplaySearchBar from '../../layout/DisplaySearchBar/DisplaySearchBar';
 
 import styles from './Search.module.scss';
 const Search = ({ getRestaurants, setAlert }) => {

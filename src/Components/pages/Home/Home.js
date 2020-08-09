@@ -14,7 +14,7 @@ import styles from './Home.module.scss';
 const Home = ({ fetchCoordinates }) => {
   useEffect(() => {
     fetchCoordinates();
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
     // eslint-disable-next-line
   }, []);
 
