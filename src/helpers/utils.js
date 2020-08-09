@@ -8,11 +8,6 @@ import {
   GET_DEFAULT_THAI_RESTAURANTS,
   GET_DEFAULT_ITALIAN_RESTAURANTS,
   GET_DEFAULT_INDIAN_RESTAURANTS,
-  CLEAR_SEARCH,
-  SET_LOADING,
-  GET_LOCATION,
-  SET_ALERT,
-  REMOVE_ALERT,
 } from '../actions/types';
 
 // Helpers for Yelp.js
@@ -106,12 +101,30 @@ export const getRestaurantsInfoHelper = async (id, dispatch) => {
   }
 };
 
-export const getDefaultRestaurantsHelper = async (location, dispatch) => {
+export const getDefaultRestaurantsHelper = async (location, type, dispatch) => {
   try {
-    let defaultRestaurants = await Yelp.SearchDefaultRestaurants(location);
+    let defaultRestaurants = await Yelp.SearchDefaultRestaurants(
+      location,
+      type
+    );
 
     if (defaultRestaurants === [] || defaultRestaurants.length === 0) {
       return dispatch(setAlert('No restaurants in the area'));
+    } else if (type === 'thai') {
+      dispatch({
+        type: GET_DEFAULT_THAI_RESTAURANTS,
+        payload: defaultRestaurants,
+      });
+    } else if (type === 'italian') {
+      dispatch({
+        type: GET_DEFAULT_ITALIAN_RESTAURANTS,
+        payload: defaultRestaurants,
+      });
+    } else if (type === 'indpak') {
+      dispatch({
+        type: GET_DEFAULT_INDIAN_RESTAURANTS,
+        payload: defaultRestaurants,
+      });
     } else {
       dispatch({
         type: GET_DEFAULT_RESTAURANTS,

@@ -1,11 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import {
-  getDefaultRestaurants,
-  getDefaultThaiRestaurants,
-  getDefaultItalianRestaurants,
-  getDefaultIndianRestaurants,
-} from '../../../actions/restaurantAction';
+import { getDefaultRestaurants } from '../../../actions/restaurantAction';
 import PropTypes from 'prop-types';
 import RestaurantSlideCard from '../../restaurants/RestaurantSlideCard/RestaurantSlideCard';
 import Carousel from 'react-multi-carousel';
@@ -21,19 +16,15 @@ const DisplayDefaultRestaurants = ({
   defaultIndianRestaurants,
   defaultItalianRestaurants,
   getDefaultRestaurants,
-  getDefaultThaiRestaurants,
-  getDefaultIndianRestaurants,
-  getDefaultItalianRestaurants,
 }) => {
   // get default restaurants with initial state location and then with actual location
   useEffect(() => {
     if (location) {
       if (defaultRestaurants.length === 0) {
-        getDefaultRestaurants(location);
-        getDefaultThaiRestaurants(location);
-        /*
-        getDefaultItalianRestaurants(location);
-        getDefaultIndianRestaurants(location); */
+        getDefaultRestaurants(location, 'restaurants');
+        getDefaultRestaurants(location, 'thai');
+        getDefaultRestaurants(location, 'italian');
+        getDefaultRestaurants(location, 'indpak');
       }
     }
     // eslint-disable-next-line
@@ -128,9 +119,6 @@ DisplayDefaultRestaurants.propTypes = {
   defaultIndianRestaurants: PropTypes.array.isRequired,
   defaultItalianRestaurants: PropTypes.array.isRequired,
   getDefaultRestaurants: PropTypes.func.isRequired,
-  getDefaultThaiRestaurants: PropTypes.func.isRequired,
-  getDefaultItalianRestaurants: PropTypes.func.isRequired,
-  getDefaultIndianRestaurants: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -143,7 +131,4 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   getDefaultRestaurants,
-  getDefaultThaiRestaurants,
-  getDefaultItalianRestaurants,
-  getDefaultIndianRestaurants,
 })(DisplayDefaultRestaurants);

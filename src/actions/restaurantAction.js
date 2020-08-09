@@ -1,16 +1,11 @@
-import Yelp from '../helpers/Yelp';
 import { getCurrentPosition } from '../helpers/GeoLocation';
 import {
   getRestaurantsHelper,
   getRestaurantsInfoHelper,
   getDefaultRestaurantsHelper,
-  getDefaultThaiRestaurantsHelper,
-  getDefaultItalianRestaurantsHelper,
 } from '../helpers/utils';
 
 import {
-  GET_DEFAULT_ITALIAN_RESTAURANTS,
-  GET_DEFAULT_INDIAN_RESTAURANTS,
   CLEAR_SEARCH,
   SET_LOADING,
   GET_LOCATION,
@@ -32,43 +27,9 @@ export const getRestaurantInfo = (id) => async (dispatch) => {
 };
 
 // Get default restaurants
-export const getDefaultRestaurants = (location) => async (dispatch) => {
+export const getDefaultRestaurants = (location, type) => async (dispatch) => {
   if (location.length > 0) {
-    getDefaultRestaurantsHelper(location, dispatch);
-  }
-};
-
-export const getDefaultThaiRestaurants = (location) => async (dispatch) => {
-  if (location.length > 0) {
-    getDefaultThaiRestaurantsHelper(location, dispatch);
-  }
-};
-
-export const getDefaultItalianRestaurants = (location) => async (dispatch) => {
-  if (location.length > 0) {
-    getDefaultItalianRestaurantsHelper(location, dispatch);
-  }
-};
-
-export const getDefaultIndianRestaurants = (location) => async (dispatch) => {
-  if (location.length > 0) {
-    let defaultIndianRestaurants = await Yelp.SearchDefaultIndianRestaurants(
-      location
-    );
-
-    if (
-      defaultIndianRestaurants === [] ||
-      defaultIndianRestaurants.length === 0
-    ) {
-      return dispatch(setAlert('No indian restaurants in the area'));
-    } else if (defaultIndianRestaurants === 'Error') {
-      return dispatch(setAlert('Something went wrong'));
-    } else {
-      dispatch({
-        type: GET_DEFAULT_INDIAN_RESTAURANTS,
-        payload: defaultIndianRestaurants,
-      });
-    }
+    getDefaultRestaurantsHelper(location, type, dispatch);
   }
 };
 

@@ -68,10 +68,10 @@ const Yelp = {
     }
   },
 
-  async SearchDefaultRestaurants(location) {
+  async SearchDefaultRestaurants(location, type) {
     try {
       let response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=6&latitude=${location[0]}&longitude=${location[1]}&categories=restaurants`,
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=6&latitude=${location[0]}&longitude=${location[1]}&categories=${type}`,
         {
           headers: {
             Authorization: `Bearer ${YELP_API_KEY}`,
@@ -87,78 +87,6 @@ const Yelp = {
 
       return searchDefaultRestaurantsHelper(response);
     } catch (e) {
-      throw new Error(e);
-    }
-  },
-
-  async SearchDefaultThaiRestaurants(location) {
-    try {
-      let response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=6&latitude=${location[0]}&longitude=${location[1]}&radius=40000&categories=thai`,
-        {
-          headers: {
-            Authorization: `Bearer ${YELP_API_KEY}`,
-            'X-Requested-With': 'XMLHttpRequest',
-            'Access-Control-Allow-Origin': '*',
-          },
-        }
-      );
-
-      if (response.data.businesses.length === 0) {
-        return [];
-      }
-
-      return searchDefaultRestaurantsHelper(response);
-    } catch (e) {
-      console.log(e);
-      throw new Error(e);
-    }
-  },
-
-  async SearchDefaultItalianRestaurants(location) {
-    try {
-      let response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=6&latitude=${location[0]}&longitude=${location[1]}&radius=40000&categories=italian`,
-        {
-          headers: {
-            Authorization: `Bearer ${YELP_API_KEY}`,
-            'X-Requested-With': 'XMLHttpRequest',
-            'Access-Control-Allow-Origin': '*',
-          },
-        }
-      );
-
-      if (response.data.businesses.length === 0) {
-        return [];
-      }
-
-      return searchDefaultRestaurantsHelper(response);
-    } catch (e) {
-      console.log(e);
-      throw new Error(e);
-    }
-  },
-
-  async SearchDefaultIndianRestaurants(location) {
-    try {
-      let response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=6&latitude=${location[0]}&longitude=${location[1]}&radius=40000&categories=indpak`,
-        {
-          headers: {
-            Authorization: `Bearer ${YELP_API_KEY}`,
-            'X-Requested-With': 'XMLHttpRequest',
-            'Access-Control-Allow-Origin': '*',
-          },
-        }
-      );
-
-      if (response.data.businesses.length === 0) {
-        return [];
-      }
-
-      return searchDefaultRestaurantsHelper(response);
-    } catch (e) {
-      console.log(e);
       throw new Error(e);
     }
   },
