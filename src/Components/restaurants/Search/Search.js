@@ -7,6 +7,7 @@ import { getRestaurants, setAlert } from '../../../actions/restaurantAction';
 import DisplaySearchBar from '../../layout/DisplaySearchBar/DisplaySearchBar';
 
 import styles from './Search.module.scss';
+
 const Search = ({ getRestaurants, setAlert }) => {
   const [where, setWhere] = useState('');
   const [what, setWhat] = useState('');
