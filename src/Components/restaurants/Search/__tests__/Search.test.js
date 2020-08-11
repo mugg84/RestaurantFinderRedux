@@ -1,25 +1,49 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
 import Search from '../Search';
-import DisplaySearchBar from '../../../layout/DisplaySearchBar/DisplaySearchBar';
 
 const mockStore = configureStore();
 
-describe('Search', () => {
-  test('renders withut errors', () => {
-    const initialState = {
-      restaurants: { alert: { msg: 'foo' } },
-    };
+const initialState = {
+  restaurants: { restaurants: ['foo'], alert: null },
+};
 
+describe('Search', () => {
+  test('setAlert called if search button pressed with no input', () => {
     const store = mockStore(initialState);
-    const wrapper = shallow(
+    const actions = { setAlert: jest.fn(), getRestaurants: jest.fn() };
+
+    const wrapper = mount(
       <Provider store={store}>
-        <Search setAlert={jest.fn()} getRestaurants={jest.fn()} />
+        <Search actions={actions} />
       </Provider>
     );
-    wrapper.find(DisplaySearchBar).props();
+    wrapper.find('.myButton').simulate('click');
+
+    expect(actions.getRestaurants).toHaveBeenCalledTimes(1);
   });
+
+  /* test('input change', () => {
+    const store = mockStore(initialState);
+    const props = { setAlert: jest.fn(), getRestaurants: jest.fn() };
+
+    const setState = jest.fn();
+    const useStateSpy = jest.spyOn(React, 'useState');
+    useStateSpy.mockImplementation((init) => [init, setState]);
+
+    const wrapper = mount(
+      <Provider store={store}>
+        <Search {...props} />
+      </Provider>
+    );
+
+    wrapper
+      .find('[name="where"]')
+      .simulate('change', { target: { value: 'foo' } });
+
+   expect(setState).toHaveBeenCalledWith('foo');
+  }); */
 });
