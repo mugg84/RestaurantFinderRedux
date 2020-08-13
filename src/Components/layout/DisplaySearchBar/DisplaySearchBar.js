@@ -47,13 +47,14 @@ const DisplaySearchBar = ({
               onChange={handleChange}
               value={what}
             />
-            <div className={styles.alertHolder}>
+            <div data-test="alert-holder" className={styles.alertHolder}>
               <Alert />
             </div>
           </fieldset>
 
           <fieldset className={styles.searchBarSubmit}>
             <input
+              data-test="search"
               className={`${styles.myButton} button`}
               type="submit"
               name="submit"
@@ -62,6 +63,7 @@ const DisplaySearchBar = ({
 
             {restaurants.length > 0 && (
               <button
+                data-test="clear"
                 className={`${styles.clearButton} button`}
                 onClick={clearSearch}
               >

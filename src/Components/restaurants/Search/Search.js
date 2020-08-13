@@ -60,7 +60,10 @@ const Search = ({ getRestaurants, setAlert }) => {
       let sortByOptionValue = sortByOptions[sortByOption];
       return (
         <li
-          className={getSortByClass(sortByOptionValue)}
+          className={`${sortByOptionValue} ${getSortByClass(
+            sortByOptionValue
+          )}`}
+          data-test={sortByOptionValue}
           key={sortByOptionValue}
           onClick={() => handleSortByChange(sortByOptionValue)}
         >

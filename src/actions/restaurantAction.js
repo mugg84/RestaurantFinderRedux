@@ -52,7 +52,7 @@ export const setLoading = () => ({ type: SET_LOADING });
 // Clear search
 export const clearSearch = () => ({ type: CLEAR_SEARCH });
 
-/// Set alert
+// Set alert
 export const setAlert = (msg, type) => (dispatch) => {
   dispatch({
     type: SET_ALERT,
