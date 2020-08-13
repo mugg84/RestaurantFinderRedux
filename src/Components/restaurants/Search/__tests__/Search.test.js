@@ -33,7 +33,7 @@ describe('Search', () => {
   });
 
   test('3 - setAlert called if search button is pressed with no input', () => {
-    wrapper.find('.myButton').simulate('click');
+    wrapper.find('[data-test="search"]').simulate('click');
     //expect(store.getActions().length).toBe(1);
     expect('props.setAlert').toHaveBeenCalled();
   });
