@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
@@ -18,19 +18,20 @@ const props = {
   handleChange: jest.fn(),
   what: '',
   handleScriptLoad: jest.fn(),
-  restaurants: jest.fn(),
+  restaurants: [],
   clearSearch: jest.fn(),
 };
 
 describe('Search', () => {
   test('', () => {
-    const {  getByText } = render(
+    const { getByText } = render(
       <Provider store={store}>
         <DisplaySearchBar {...props} />
       </Provider>
     );
 
     const button = getByText('Search');
-    fireEvent.click(button);
+    //fireEvent.click(button);
   });
 });
+ */

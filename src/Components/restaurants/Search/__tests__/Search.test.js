@@ -20,6 +20,13 @@ const wrapper = mount(
 );
 
 describe('Search', () => {
+  beforeEach(() => {
+    const form = wrapper.find('form').first();
+    form.simulate('submit', {
+      preventDefault: () => {},
+    });
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -35,7 +42,7 @@ describe('Search', () => {
   test('3 - setAlert called if search button is pressed with no input', () => {
     wrapper.find('[data-test="search"]').simulate('click');
     //expect(store.getActions().length).toBe(1);
-    expect(props.setAlert).toHaveBeenCalled();
+    expect(wrapper.props().children.props.props.setAlert).toHaveBeenCalled();
   });
 
   test('4 - getRestaurant called when inputs filled and search button clicked ', () => {
@@ -51,6 +58,8 @@ describe('Search', () => {
 
     wrapper.find('[data-test="search"]').simulate('click');
 
-    expect(props.getRestaurants).toHaveBeenCalled();
+    expect(
+      wrapper.props().children.props.props.getRestaurants
+    ).toHaveBeenCalled();
   });
 });
