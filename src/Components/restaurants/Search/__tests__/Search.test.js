@@ -14,7 +14,7 @@ const initialState = {
 const store = mockStore(initialState);
 const mockSetAlert = jest.fn();
 const mockGetRestaurants = jest.fn();
-const onSubmit = jest.fn();
+
 const wrapper = mount(
   <Provider store={store}>
     <Search setAlert={mockSetAlert} getRestaurants={mockGetRestaurants} />
@@ -22,13 +22,6 @@ const wrapper = mount(
 );
 
 describe('Search', () => {
-  /* beforeEach(() => {
-    const form = wrapper.find('form').first();
-    form.simulate('submit', {
-      preventDefault: () => {},
-    });
-  }); */
-
   afterEach(() => {
     jest.clearAllMocks();
   });
