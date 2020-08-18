@@ -53,10 +53,10 @@ export const setLoading = () => ({ type: SET_LOADING });
 export const clearSearch = () => ({ type: CLEAR_SEARCH });
 
 // Set alert
-export const setAlert = (msg, type) => (dispatch) => {
+export const setAlert = (msg) => (dispatch) => {
   dispatch({
     type: SET_ALERT,
-    payload: { msg, type },
+    payload: { msg },
   });
 
   setTimeout(() => dispatch({ type: REMOVE_ALERT }), 5000);

@@ -12,6 +12,7 @@ const Search = ({ getRestaurants, setAlert }) => {
   const [where, setWhere] = useState('');
   const [what, setWhat] = useState('');
   const [sortBy, setSortBy] = useState('rating');
+ 
 
   const sortByOptions = {
     'Highest Rated': 'rating',
