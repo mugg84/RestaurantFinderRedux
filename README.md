@@ -1,7 +1,5 @@
 # Restaurant Finder App with Redux https://restaurant-finder-redux.netlify.app/
 
-# Recipe Finder
-
 A React app which provides a restaurant list according to different parameters.
 
 If you select a restaurant from the list you'll be redirected to a new page with the selected restaurant info.
@@ -26,7 +24,7 @@ It automatically displays different types of restaurant list if location permiss
 
 ## Front-end
 
-- React with Redux and hooks
+- React with Redux and Hooks
 
 ## Testing
 
