@@ -1,4 +1,6 @@
-# Restaurant Finder App with Redux https://restaurant-finder-redux.netlify.app/
+# Restaurant Finder App with Redux 
+
+https://restaurant-finder-redux.netlify.app/
 
 A React app which provides a restaurant list according to different parameters.
 
