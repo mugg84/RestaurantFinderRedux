@@ -3,9 +3,10 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
-import DisplaySearchBar from '../../../layout/DisplaySearchBar/DisplaySearchBar';
-
-import { CLEAR_SEARCH } from '../../../../actions/types';
+import {
+  DisplaySearchBar as BaseDisplaySearchBar,
+  default as DisplaySearchBar
+} from '../../../layout/DisplaySearchBar/DisplaySearchBar';
 
 const mockStore = configureStore();
 const initialState = {
@@ -22,6 +23,11 @@ const props = {
 };
 
 let wrapper, store;
+
+jest.mock('../../Alert/Alert', () => ({
+  default: () => null,
+  __esModule: true
+}));
 
 describe('Search', () => {
   beforeEach(() => {
@@ -63,15 +69,15 @@ describe('Search', () => {
   });
 
   test('4- on ClearButton click CLEAR_SEARCH action is dispatched', () => {
-    const initialState = {
-      restaurants: { restaurants: ['foo'], alert: null },
-    };
-    store = mockStore(initialState);
+    const restaurants = ['foo'];
+    const clearSearch = jest.fn();
 
     wrapper = mount(
-      <Provider store={store}>
-        <DisplaySearchBar {...props} />
-      </Provider>
+      <BaseDisplaySearchBar
+        {...props}
+        clearSearch={clearSearch}
+        restaurants={restaurants}
+      />
     );
 
     wrapper
@@ -79,12 +85,6 @@ describe('Search', () => {
       .at(0)
       .simulate('click');
 
-    const actions = store.getActions();
-
-    const expected = {
-      type: CLEAR_SEARCH,
-    };
-
-    expect(actions).toContainEqual(expected);
+    expect(clearSearch).toHaveBeenCalled();
   });
 });
