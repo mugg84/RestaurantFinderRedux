@@ -9,7 +9,7 @@ import Alert from '../Alert/Alert';
 
 import styles from './DisplaySearchBar.module.scss';
 
-const DisplaySearchBar = ({
+export const DisplaySearchBar = ({
   renderSortByOptions,
   onSubmit,
   where,
