@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Yelp from '../helpers/Yelp';
 import { setAlert } from '../actions/restaurantAction';
 
@@ -200,4 +201,19 @@ export const getDefaultIndianRestaurantsHelper = async (location, dispatch) => {
   } catch (error) {
     dispatch(setAlert('Something went wrong'));
   }
+};
+
+export const useCustomHook = (initialState) => {
+  const [where, setPlace] = useState(initialState);
+  const [what, setCousine] = useState('');
+  const [sortBy, setSortType] = useState('rating');
+
+  return {
+    where,
+    what,
+    sortBy,
+    setWhere: (place) => setPlace(place),
+    setWhat: (cousine) => setCousine(cousine),
+    setSortBy: (type) => setSortType(type),
+  };
 };

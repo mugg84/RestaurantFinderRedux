@@ -13,6 +13,7 @@ const getRestaurants = jest.fn();
 const setAlert = jest.fn();
 let restaurants = [];
 const clearSearch = jest.fn();
+const handleScriptLoad = jest.fn();
 
 describe('Search', () => {
   beforeEach(() => {
@@ -22,12 +23,9 @@ describe('Search', () => {
         restaurants={restaurants}
         getRestaurants={getRestaurants}
         setAlert={setAlert}
+        handleScriptLoad={handleScriptLoad}
       />
     );
-  });
-
-  afterEach(() => {
-    jest.clearAllMocks();
   });
 
   test('1- if "what" input changes handleChange is called', () => {

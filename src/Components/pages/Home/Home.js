@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { fetchCoordinates } from '../../../actions/restaurantAction';
+import { handleScriptLoad } from '../../../helpers/Autocomplete';
 import DisplaySearchBar from '../../layout/DisplaySearchBar/DisplaySearchBar';
 import Navbar from '../../layout/Navbar/Navbar';
 import DisplatDefaultRestaurants from '../../layout/DisplayDefaultRestaurants/DisplayDefaultRestaurants';
@@ -23,7 +24,7 @@ const Home = ({ fetchCoordinates }) => {
     <section className={styles.mainHome}>
       <>
         <Navbar className="sticky navHome" />
-        <DisplaySearchBar />
+        <DisplaySearchBar handleScriptLoad={handleScriptLoad} />
         <DisplayRestaurants />
         <DisplatDefaultRestaurants />
         <ParallaxPics />

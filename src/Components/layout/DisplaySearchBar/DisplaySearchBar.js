@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Script from 'react-load-script';
+import Fade from 'react-reveal/Fade';
+import { useCustomHook } from '../../../helpers/utils';
+
 import {
   clearSearch,
   getRestaurants,
   setAlert,
 } from '../../../actions/restaurantAction';
-//Import React Script Libraray to load Google object
-import Script from 'react-load-script';
-import Fade from 'react-reveal/Fade';
-
-import { handleScriptLoad } from '../../../helpers/Autocomplete';
 import Alert from '../Alert/Alert';
 
 import styles from './DisplaySearchBar.module.scss';
@@ -19,16 +18,15 @@ const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REA
 // {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
 
 export const DisplaySearchBar = ({
-  onSubmit,
   handleScriptLoad,
   restaurants,
   clearSearch,
   getRestaurants,
   setAlert,
 }) => {
-  const [where, setWhere] = useState('');
-  const [what, setWhat] = useState('');
-  const [sortBy, setSortBy] = useState('rating');
+  const { where, setWhere } = useCustomHook('');
+  const { what, setWhat } = useCustomHook('');
+  const { sortBy, setSortBy } = useCustomHook('rating');
 
   const sortByOptions = {
     'Highest Rated': 'rating',
@@ -142,7 +140,7 @@ export const DisplaySearchBar = ({
 };
 
 DisplaySearchBar.propTypes = {
-  handleScriptLoad: PropTypes.func.isRequired,
+  handleScriptLoad: PropTypes.func,
   restaurants: PropTypes.array.isRequired,
   clearSearch: PropTypes.func.isRequired,
   getRestaurants: PropTypes.func.isRequired,

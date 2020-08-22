@@ -36,7 +36,7 @@ describe('SearchRestaurants', () => {
     expect(axios.get).toHaveBeenCalledTimes(1);
   });
 
-  /*  test('2 - if no restaurants returned returns "[]"', async () => {
+  test('2 - if no restaurants returned returns "[]"', async () => {
     axios.get.mockImplementationOnce(() => {
       const response = { data: { businesses: [] } };
       return Promise.resolve(response);
@@ -131,5 +131,5 @@ describe('SearchDefaultRestaurants', () => {
     });
 
     await expect(Yelp.SearchDefaultRestaurants([1, 1])).rejects.toThrow(Error);
-  }); */
+  });
 });
