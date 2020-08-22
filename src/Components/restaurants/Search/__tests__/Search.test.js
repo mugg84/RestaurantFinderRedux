@@ -4,15 +4,16 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
-import Search from './../Search';
-import DisplaySearchBar from '../../../layout/DisplaySearchBar/DisplaySearchBar';
-
-import { SET_LOADING, SET_ALERT } from '../../../../actions/types';
+import { Search as BaseSearch } from './../Search';
+import { DisplaySearchBar as BaseDisplaySearchBar } from '../../../layout/DisplaySearchBar/DisplaySearchBar';
 
 const mockStore = configureStore([thunk]);
 const initialState = {
   restaurants: { restaurants: ['foo'], alert: null },
 };
+
+const getRestaurants = jest.fn();
+const setAlert = jest.fn();
 
 let wrapper, store;
 
@@ -22,7 +23,7 @@ describe('Search', () => {
 
     wrapper = mount(
       <Provider store={store}>
-        <Search />
+        <BaseSearch setAlert={setAlert} getRestaurants={getRestaurants} />
       </Provider>
     );
   });
@@ -32,7 +33,7 @@ describe('Search', () => {
   });
 
   test('1 - renders without errors', () => {
-    expect(wrapper.find(DisplaySearchBar)).toHaveLength(1);
+    expect(wrapper.find(BaseDisplaySearchBar)).toHaveLength(1);
   });
 
   test('2 - if restaurants clearButton is rendered', () => {
@@ -41,12 +42,8 @@ describe('Search', () => {
 
   test('3 - setAlert called if search button is pressed with no input', () => {
     wrapper.find('form').simulate('submit', { preventDefault: () => {} });
-    const actions = store.getActions();
-    const expected = {
-      type: SET_ALERT,
-      payload: expect.objectContaining({ msg: 'Please fill all the inputs' }),
-    };
-    expect(actions[0]).toMatchObject(expected);
+
+    expect(setAlert).toHaveBeenCalled();
   });
 
   test('4 - setLoading called when inputs filled and search button clicked ', () => {
@@ -66,11 +63,7 @@ describe('Search', () => {
       .simulate('click');
 
     wrapper.find('form').simulate('submit', { preventDefault: () => {} });
-    
-    const actions = store.getActions();
-    const expected = {
-      type: SET_LOADING,
-    };
-    expect(actions).toContainEqual(expected);
+
+    expect(getRestaurants).toHaveBeenCalled();
   });
 });

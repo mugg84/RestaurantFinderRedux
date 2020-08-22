@@ -1,16 +1,8 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
-import DisplaySearchBar from '../../../layout/DisplaySearchBar/DisplaySearchBar';
+import { DisplaySearchBar as BaseDisplaySearchBar } from '../../../layout/DisplaySearchBar/DisplaySearchBar';
 
-import { CLEAR_SEARCH } from '../../../../actions/types';
-
-const mockStore = configureStore();
-const initialState = {
-  restaurants: { restaurants: [], alert: null },
-};
 const props = {
   renderSortByOptions: jest.fn(),
   onSubmit: jest.fn(),
@@ -21,16 +13,24 @@ const props = {
   clearSearch: jest.fn(),
 };
 
-let wrapper, store;
+let wrapper;
+
+jest.mock('../../Alert/Alert', () => ({
+  default: () => null,
+  __esModule: true,
+}));
+
+let restaurants = [];
+const clearSearch = jest.fn();
 
 describe('Search', () => {
   beforeEach(() => {
-    store = mockStore(initialState);
-
     wrapper = mount(
-      <Provider store={store}>
-        <DisplaySearchBar {...props} />
-      </Provider>
+      <BaseDisplaySearchBar
+        {...props}
+        clearSearch={clearSearch}
+        restaurants={restaurants}
+      />
     );
   });
 
@@ -63,35 +63,15 @@ describe('Search', () => {
   });
 
   test('4- on ClearButton click CLEAR_SEARCH action is dispatched', () => {
-    const initialState = {
-      restaurants: { restaurants: ['foo'], alert: null },
-    };
-    store = mockStore(initialState);
-
-    const clearSearch = jest.fn((x) => console.log('i am called'));
+    restaurants = ['foo'];
     wrapper = mount(
-      <Provider store={store}>
-        <DisplaySearchBar {...props} clearSearch={clearSearch} />
-      </Provider>
+      <BaseDisplaySearchBar
+        {...props}
+        clearSearch={clearSearch}
+        restaurants={restaurants}
+      />
     );
-
-    console.log({ debug: wrapper.find('[data-test="clear"]').debug() });
-
-    console.log({ clearDom2: wrapper.find('[data-test="clear"]') });
-
-    wrapper
-      .find('[data-test="clear"]')
-      // .at(0)
-      .simulate('click');
-
-    setTimeout(() => console.log({ clearSearch }), 50);
-    /* const actions = store.getActions();
-
-    const expected = {
-      type: CLEAR_SEARCH,
-    };
-
-    expect(actions).toContainEqual(expected); */
+    wrapper.find('[data-test="clear"]').simulate('click');
 
     expect(clearSearch).toHaveBeenCalled();
   });
