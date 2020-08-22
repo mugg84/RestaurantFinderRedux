@@ -13,11 +13,11 @@ const DisplayAbout = () => {
       items: 1,
     },
   };
-
+// BEM Convention
   return (
     <>
       <section className={styles.about}>
-        <hgroup className={styles.aboutText}>
+        <hgroup className={styles['about--text']}>
           <Fade left>
             <h1>About this App</h1>
           </Fade>

@@ -12,7 +12,6 @@ const Search = ({ getRestaurants, setAlert }) => {
   const [where, setWhere] = useState('');
   const [what, setWhat] = useState('');
   const [sortBy, setSortBy] = useState('rating');
- 
 
   const sortByOptions = {
     'Highest Rated': 'rating',
@@ -21,13 +20,8 @@ const Search = ({ getRestaurants, setAlert }) => {
   };
 
   // give active class to option selected
-  const getSortByClass = (sortByOption) => {
-    if (sortBy === sortByOption) {
-      return styles.active;
-    } else {
-      return '';
-    }
-  };
+  const getSortByClass = (sortByOption) =>
+    sortBy === sortByOption ? styles.active : '';
 
   // set the state of a sorting option
   const handleSortByChange = (sortByOption) => {

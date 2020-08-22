@@ -20,123 +20,123 @@ const Restaurant = ({ match, loading, restaurant, getRestaurantInfo }) => {
     // eslint-disable-next-line
   }, []);
 
-  const renderPage = () => {
-    if (loading) {
-      return <Spinner />;
-    } else {
-      if (restaurant) {
-        const {
-          name,
-          address,
-          city,
-          rating,
-          coordinates,
-          photos = [],
-          phone,
-          price,
-          categories,
-          url,
-          reviews,
-        } = restaurant;
+  if (loading) {
+    return <Spinner />;
+  }
 
-        return (
-          <section className={styles.restaurantInfo}>
-            <Navbar className="navInfo" />
+  if (!restaurant) {
+    return <p>There's not restaurant</p>
+  }
+  
+  const {
+    name,
+    address,
+    city,
+    rating,
+    coordinates,
+    photos = [],
+    phone,
+    price,
+    categories,
+    url,
+    reviews,
+  } = restaurant;
 
-            <section className={styles.restaurantDisplay}>
-              <article className={styles.restaurantDisplayright}>
-                <hgroup className={styles.restaurantDisplayInfo}>
-                  <Fade left>
-                    <h2>{name}</h2>
-                  </Fade>
+  return (
+    <section className={styles.restaurantInfo}>
+      <Navbar className="navInfo" />
 
-                  <div>
-                    <p>{categories}</p>
-                    <StarRatings
-                      rating={rating}
-                      numberOfStars={5}
-                      starRatedColor="#fad222"
-                      starDimension="2rem"
-                      starSpacing="0.3rem"
-                    />
-                  </div>
-                  {price && <p>Price: {price}</p>}
-                </hgroup>
+      <section className={styles.restaurantDisplay}>
+        <article className={styles.restaurantDisplayright}>
+          <hgroup className={styles.restaurantDisplayInfo}>
+            <Fade left>
+              <h2>{name}</h2>
+            </Fade>
+
+            <div>
+              <p>{categories}</p>
+              <StarRatings
+                rating={rating}
+                numberOfStars={5}
+                starRatedColor="#fad222"
+                starDimension="2rem"
+                starSpacing="0.3rem"
+              />
+            </div>
+            {price && <p>Price: {price}</p>}
+          </hgroup>
+          <Fade>
+            <figure className={styles.restaurantImg}>
+              <img
+                id={styles.first}
+                src={
+                  photos.length
+                    ? photos[0]
+                    : require('../../../Images/no-image-avaiable.jpg')
+                }
+                alt={name}
+              />
+              <img
+                src={
+                  photos.length > 1
+                    ? photos[1]
+                    : require('../../../Images/no-image-avaiable.jpg')
+                }
+                alt={name}
+              />
+              <img
+                src={
+                  photos.length > 2
+                    ? photos[2]
+                    : require('../../../Images/no-image-avaiable.jpg')
+                }
+                alt={name}
+              />
+            </figure>
+          </Fade>
+
+          <ul className={styles.restaurantReviews}>
+            <h3>{reviews && reviews.length} Reviews</h3>
+            {reviews &&
+              reviews.map((review) => (
                 <Fade>
-                  <figure className={styles.restaurantImg}>
-                    <img
-                      id={styles.first}
-                      src={
-                        photos.length
-                          ? photos[0]
-                          : require('../../../Images/no-image-avaiable.jpg')
-                      }
-                      alt={name}
-                    />
-                    <img
-                      src={
-                        photos.length > 1
-                          ? photos[1]
-                          : require('../../../Images/no-image-avaiable.jpg')
-                      }
-                      alt={name}
-                    />
-                    <img
-                      src={
-                        photos.length > 2
-                          ? photos[2]
-                          : require('../../../Images/no-image-avaiable.jpg')
-                      }
-                      alt={name}
-                    />
-                  </figure>
+                  <Review review={review} key={uuidv4()} />
                 </Fade>
+              ))}
+          </ul>
 
-                <ul className={styles.restaurantReviews}>
-                  <h3>{reviews && reviews.length} Reviews</h3>
-                  {reviews &&
-                    reviews.map((review) => (
-                      <Fade>
-                        <Review review={review} key={uuidv4()} />
-                      </Fade>
-                    ))}
-                </ul>
+          <Link to="/" className={`${styles.backButton} button`}>
+            Back to Search
+          </Link>
+        </article>
+        <aside className={styles.restaurantDisplayLeft}>
+          <figure>
+            <SimpleMap coord={coordinates} />
+            <figcaption>
+              <p>{address}</p>
+              <p>{city}</p>
+              <p>
+                Visit our{' '}
+                <a
+                  style={{ color: 'var($color-primary)' }}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Website
+                </a>
+              </p>
+              <p>Call {phone}</p>
+            </figcaption>
+          </figure>
+        </aside>
+      </section>
 
-                <Link to="/" className={`${styles.backButton} button`}>
-                  Back to Search
-                </Link>
-              </article>
-              <aside className={styles.restaurantDisplayLeft}>
-                <figure>
-                  <SimpleMap coord={coordinates} />
-                  <figcaption>
-                    <p>{address}</p>
-                    <p>{city}</p>
-                    <p>
-                      Visit our{' '}
-                      <a
-                        style={{ color: 'var($color-primary)' }}
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Website
-                      </a>
-                    </p>
-                    <p>Call {phone}</p>
-                  </figcaption>
-                </figure>
-              </aside>
-            </section>
+      <Footer />
+    </section>
+  );
 
-            <Footer />
-          </section>
-        );
-      }
-    }
-  };
 
-  return <>{renderPage()}</>;
 };
 
 Restaurant.propTypes = {

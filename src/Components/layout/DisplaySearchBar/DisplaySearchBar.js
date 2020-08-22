@@ -65,7 +65,7 @@ const DisplaySearchBar = ({
               <button
                 data-test="clear"
                 className={`${styles.clearButton} button`}
-                onClick={clearSearch}
+                onClick={() => clearSearch()}
               >
                 Clear
               </button>

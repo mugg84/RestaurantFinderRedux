@@ -24,14 +24,16 @@ h2 {
       center center fixed;
   background-size: 100% 100%;
   padding: 4rem 0;
+  
+  
+  &--text {
+    position: absolute;
+    top: 40rem;
+    left: 4rem;
+    @include flex(stretch, flex-start, column);
+  }
 }
 
-.aboutText {
-  position: absolute;
-  top: 40rem;
-  left: 4rem;
-  @include flex(stretch, flex-start, column);
-}
 
 .who,
 .values {

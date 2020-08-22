@@ -1,7 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 import DisplaySearchBar from '../../../layout/DisplaySearchBar/DisplaySearchBar';
 
@@ -68,23 +68,31 @@ describe('Search', () => {
     };
     store = mockStore(initialState);
 
+    const clearSearch = jest.fn((x) => console.log('i am called'));
     wrapper = mount(
       <Provider store={store}>
-        <DisplaySearchBar {...props} />
+        <DisplaySearchBar {...props} clearSearch={clearSearch} />
       </Provider>
     );
 
+    console.log({ debug: wrapper.find('[data-test="clear"]').debug() });
+
+    console.log({ clearDom2: wrapper.find('[data-test="clear"]') });
+
     wrapper
       .find('[data-test="clear"]')
-      .at(0)
+      // .at(0)
       .simulate('click');
 
-    const actions = store.getActions();
+    setTimeout(() => console.log({ clearSearch }), 50);
+    /* const actions = store.getActions();
 
     const expected = {
       type: CLEAR_SEARCH,
     };
 
-    expect(actions).toContainEqual(expected);
+    expect(actions).toContainEqual(expected); */
+
+    expect(clearSearch).toHaveBeenCalled();
   });
 });

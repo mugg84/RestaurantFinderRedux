@@ -66,11 +66,11 @@ describe('Search', () => {
       .simulate('click');
 
     wrapper.find('form').simulate('submit', { preventDefault: () => {} });
+    
     const actions = store.getActions();
     const expected = {
       type: SET_LOADING,
     };
-
     expect(actions).toContainEqual(expected);
   });
 });
