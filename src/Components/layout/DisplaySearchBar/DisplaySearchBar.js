@@ -1,29 +1,88 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { clearSearch } from '../../../actions/restaurantAction';
+import {
+  clearSearch,
+  getRestaurants,
+  setAlert,
+} from '../../../actions/restaurantAction';
 //Import React Script Libraray to load Google object
 import Script from 'react-load-script';
 import Fade from 'react-reveal/Fade';
+
+import { handleScriptLoad } from '../../../helpers/Autocomplete';
 import Alert from '../Alert/Alert';
 
 import styles from './DisplaySearchBar.module.scss';
 
+const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
+// {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
+
 export const DisplaySearchBar = ({
-  renderSortByOptions,
   onSubmit,
-  where,
-  handleChange,
-  what,
   handleScriptLoad,
   restaurants,
   clearSearch,
+  getRestaurants,
+  setAlert,
 }) => {
-  const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
-  // {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
+  const [where, setWhere] = useState('');
+  const [what, setWhat] = useState('');
+  const [sortBy, setSortBy] = useState('rating');
+
+  const sortByOptions = {
+    'Highest Rated': 'rating',
+    'Best Match': 'best_match',
+    'Most Reviewed': 'review_count',
+  };
+
+  const handleSortByChange = (sortByOption) => {
+    setSortBy(sortByOption);
+  };
+
+  const getSortByClass = (sortByOption) =>
+    sortBy === sortByOption ? styles.active : '';
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (where && what) {
+      getRestaurants({ where, what, sortBy });
+      setWhere('');
+      setWhat('');
+      setSortBy('best_match');
+    } else {
+      setAlert('Please fill all the inputs');
+    }
+  };
+
+  const handleChange = (e) => {
+    if (e.target.name === 'what') {
+      setWhat(e.target.value);
+    } else if (e.target.name === 'where') {
+      setWhere(e.target.value);
+    }
+  };
+
+  const renderSortByOptions = () => {
+    return Object.keys(sortByOptions).map((sortByOption) => {
+      let sortByOptionValue = sortByOptions[sortByOption];
+      return (
+        <li
+          className={`${sortByOptionValue} ${getSortByClass(
+            sortByOptionValue
+          )}`}
+          data-test={sortByOptionValue}
+          key={sortByOptionValue}
+          onClick={() => handleSortByChange(sortByOptionValue)}
+        >
+          {sortByOption}
+        </li>
+      );
+    });
+  };
   return (
     <section className={styles.searchBar}>
-      <form onSubmit={onSubmit} className={styles.searchBarForm}>
+      <form onSubmit={handleSubmit} className={styles.searchBarForm}>
         <legend className="title">
           <Fade left>
             <h1>Where are you going to eat tonight?</h1>
@@ -83,17 +142,19 @@ export const DisplaySearchBar = ({
 };
 
 DisplaySearchBar.propTypes = {
-  renderSortByOptions: PropTypes.func.isRequired,
-  where: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  what: PropTypes.string.isRequired,
   handleScriptLoad: PropTypes.func.isRequired,
   restaurants: PropTypes.array.isRequired,
   clearSearch: PropTypes.func.isRequired,
+  getRestaurants: PropTypes.func.isRequired,
+  setAlert: PropTypes.func.isRequired,
 };
 
 const mapStatetoProps = (state) => ({
   restaurants: state.restaurants.restaurants,
 });
 
-export default connect(mapStatetoProps, { clearSearch })(DisplaySearchBar);
+export default connect(mapStatetoProps, {
+  clearSearch,
+  getRestaurants,
+  setAlert,
+})(DisplaySearchBar);

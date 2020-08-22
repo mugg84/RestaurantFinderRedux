@@ -2,6 +2,10 @@
 
 @import '../../../style/mixin';
 
+.active {
+  color: $color-primary;
+}
+
 .searchBar {
   @include flex(stretch, space-around, row);
   padding: 10rem 8rem;

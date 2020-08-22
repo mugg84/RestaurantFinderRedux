@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
 import { fetchCoordinates } from '../../../actions/restaurantAction';
-import Search from '../../restaurants/Search/Search';
+import DisplaySearchBar from '../../layout/DisplaySearchBar/DisplaySearchBar';
 import Navbar from '../../layout/Navbar/Navbar';
 import DisplatDefaultRestaurants from '../../layout/DisplayDefaultRestaurants/DisplayDefaultRestaurants';
 import DisplayRestaurants from '../../layout/DisplayRestaurants/DisplayRestaurants';
@@ -22,7 +23,7 @@ const Home = ({ fetchCoordinates }) => {
     <section className={styles.mainHome}>
       <>
         <Navbar className="sticky navHome" />
-        <Search />
+        <DisplaySearchBar />
         <DisplayRestaurants />
         <DisplatDefaultRestaurants />
         <ParallaxPics />

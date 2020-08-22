@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
@@ -66,4 +66,4 @@ describe('Search', () => {
 
     expect(getRestaurants).toHaveBeenCalled();
   });
-});
+}); */
