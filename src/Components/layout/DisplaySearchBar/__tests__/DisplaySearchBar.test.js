@@ -9,26 +9,20 @@ jest.mock('../../Alert/Alert', () => ({
   default: () => null,
   __esModule: true,
 }));
-const getRestaurants = jest.fn();
-const setAlert = jest.fn();
-let restaurants = [];
-const clearSearch = jest.fn();
-const handleScriptLoad = jest.fn();
+const props = {
+  getRestaurants: jest.fn(),
+  setAlert: jest.fn(),
+  restaurants: [],
+  clearSearch: jest.fn(),
+  handleScriptLoad: jest.fn(),
+};
 
 describe('Search', () => {
   beforeEach(() => {
-    wrapper = mount(
-      <BaseDisplaySearchBar
-        clearSearch={clearSearch}
-        restaurants={restaurants}
-        getRestaurants={getRestaurants}
-        setAlert={setAlert}
-        handleScriptLoad={handleScriptLoad}
-      />
-    );
+    wrapper = mount(<BaseDisplaySearchBar {...props} />);
   });
 
-  test('1- if "what" input changes handleChange is called', () => {
+  test('1- input "where" updates its value when input simulated', () => {
     wrapper.find('[name="what"]').simulate('change', {
       target: { value: 'foo', name: 'what' },
     });
@@ -36,7 +30,7 @@ describe('Search', () => {
     expect(wrapper.find('[name="what"]').prop('value')).toBe('foo');
   });
 
-  test('2- if "where" input changes handleChange is called', () => {
+  test('2- input "what" updates its value when input simulated', () => {
     wrapper
       .find('[name="where"]')
       .simulate('change', { target: { value: 'foo', name: 'where' } });
@@ -45,30 +39,22 @@ describe('Search', () => {
   });
 
   test('3- if "restaurants" empty ClearButton is not rendered ', () => {
-    const clear = wrapper.find('[data-test="clear"]');
+    const clear = wrapper.find('[data-testid="clear"]');
 
     expect(clear.length).toBe(0);
   });
 
   test('4- on ClearButton "clearSearch" is called', () => {
-    restaurants = ['foo'];
-    wrapper = mount(
-      <BaseDisplaySearchBar
-        clearSearch={clearSearch}
-        restaurants={restaurants}
-        getRestaurants={getRestaurants}
-        setAlert={setAlert}
-      />
-    );
-    wrapper.find('[data-test="clear"]').simulate('click');
+    wrapper = mount(<BaseDisplaySearchBar {...props} restaurants={['foo']} />);
+    wrapper.find('[data-testid="clear"]').simulate('click');
 
-    expect(clearSearch).toHaveBeenCalled();
+    expect(props.clearSearch).toHaveBeenCalled();
   });
 
   test('5 - setAlert called if search button is pressed with no input', () => {
     wrapper.find('form').simulate('submit', { preventDefault: () => {} });
 
-    expect(setAlert).toHaveBeenCalled();
+    expect(props.setAlert).toHaveBeenCalled();
   });
 
   test('6 - getRestaurants called when inputs filled and search button clicked ', () => {
@@ -80,10 +66,10 @@ describe('Search', () => {
       .find('[name="what"]')
       .simulate('change', { target: { value: 'foo', name: 'what' } });
 
-    wrapper.find('[data-test="best_match"]').simulate('click');
+    wrapper.find('[data-testid="best_match"]').simulate('click');
 
     wrapper.find('form').simulate('submit', { preventDefault: () => {} });
 
-    expect(getRestaurants).toHaveBeenCalled();
+    expect(props.getRestaurants).toHaveBeenCalled();
   });
 });

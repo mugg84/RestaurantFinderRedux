@@ -69,7 +69,7 @@ export const DisplaySearchBar = ({
           className={`${sortByOptionValue} ${getSortByClass(
             sortByOptionValue
           )}`}
-          data-test={sortByOptionValue}
+          data-testid={sortByOptionValue}
           key={sortByOptionValue}
           onClick={() => handleSortByChange(sortByOptionValue)}
         >
@@ -80,7 +80,11 @@ export const DisplaySearchBar = ({
   };
   return (
     <section className={styles.searchBar}>
-      <form onSubmit={handleSubmit} className={styles.searchBarForm}>
+      <form
+        onSubmit={handleSubmit}
+        className={styles.searchBarForm}
+        data-testid="form"
+      >
         <legend className="title">
           <Fade left>
             <h1>Where are you going to eat tonight?</h1>
@@ -104,14 +108,14 @@ export const DisplaySearchBar = ({
               onChange={handleChange}
               value={what}
             />
-            <div data-test="alert-holder" className={styles.alertHolder}>
+            <div data-testid="alert-holder" className={styles.alertHolder}>
               <Alert />
             </div>
           </fieldset>
 
           <fieldset className={styles.searchBarSubmit}>
             <input
-              data-test="search"
+              data-testid="search"
               className={`${styles.myButton} button`}
               type="submit"
               name="submit"
@@ -120,7 +124,7 @@ export const DisplaySearchBar = ({
 
             {restaurants.length > 0 && (
               <button
-                data-test="clear"
+                data-testid="clear"
                 className={`${styles.clearButton} button`}
                 onClick={() => clearSearch()}
               >
