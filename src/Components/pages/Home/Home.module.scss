@@ -13,6 +13,12 @@
   height: 95vh;
 }
 
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .mainHome {
+    height: 140vh;
+  }
+}
+
 @media only screen and (max-width: 450px) {
   .mainHome {
     height: 80vh;

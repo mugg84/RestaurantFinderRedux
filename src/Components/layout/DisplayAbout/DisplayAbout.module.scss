@@ -24,8 +24,7 @@ h2 {
       center center fixed;
   background-size: 100% 100%;
   padding: 4rem 0;
-  
-  
+
   &--text {
     position: absolute;
     top: 40rem;
@@ -33,7 +32,6 @@ h2 {
     @include flex(stretch, flex-start, column);
   }
 }
-
 
 .who,
 .values {
@@ -168,9 +166,27 @@ h2 {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-@media only screen and (orientation: landscape) and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+  .about {
+    height: 95vh;
+
+    &__text {
+      top: 65vh;
+    }
+  }
+
   .fixed {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (orientation: portrait) {
+  .about {
+    height: 85vh;
+
+    &__text {
+      top: 65vh;
+    }
   }
 }
 
@@ -201,11 +217,6 @@ h2 {
 
   .about {
     background-size: cover;
-    height: 60rem;
-  }
-
-  .aboutText {
-    top: 35rem;
   }
 
   .who,

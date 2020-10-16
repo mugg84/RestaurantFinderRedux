@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Script from 'react-load-script';
+//import Script from 'react-load-script';
 import Fade from 'react-reveal/Fade';
 import { useCustomHook } from '../../../helpers/utils';
 
@@ -14,7 +14,7 @@ import Alert from '../Alert/Alert';
 
 import styles from './DisplaySearchBar.module.scss';
 
-const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
+//const googleUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
 // {googleUrl && <Script url={googleUrl} onLoad={handleScriptLoad} />}
 
 export const DisplaySearchBar = ({

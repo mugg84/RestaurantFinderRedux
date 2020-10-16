@@ -58,6 +58,12 @@
   right: 45%;
 }
 
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .parallax {
+    height: 180vh;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .parallax {
     height: 100vh;
