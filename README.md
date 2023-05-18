@@ -8,6 +8,15 @@ If you select a restaurant from the list you'll be redirected to a new page with
 
 It automatically displays different types of restaurant list if location permissions are granted.
 
+## Enabling CORS
+
+This application requires Cross-Origin Resource Sharing (CORS) to be enabled in order to function properly. If you're running into issues related to CORS, such as getting errors mentioning that the origin isn't allowed by Access-Control-Allow-Origin, here's what you can do:
+
+1. Go to [CORS Anywhere](https://cors-anywhere.herokuapp.com/corsdemo).
+2. Click on the "Request temporary access to the demo server" button.
+
+This should enable CORS for your session and allow the application to work as expected.
+
 ## Search parameters:
 
 - Type: cousine or restaurant
